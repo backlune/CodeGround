@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodeGround.Base", "GodeGround.Base\GodeGround.Base.csproj", "{28DA6EB8-A8A7-45A0-BF56-69CEC0C20553}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodeGround.Performance", "GodeGround.Performance\GodeGround.Performance.csproj", "{CEC33F3E-1864-4A35-AC4F-3058D10C809B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28DA6EB8-A8A7-45A0-BF56-69CEC0C20553}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28DA6EB8-A8A7-45A0-BF56-69CEC0C20553}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28DA6EB8-A8A7-45A0-BF56-69CEC0C20553}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28DA6EB8-A8A7-45A0-BF56-69CEC0C20553}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEC33F3E-1864-4A35-AC4F-3058D10C809B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEC33F3E-1864-4A35-AC4F-3058D10C809B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEC33F3E-1864-4A35-AC4F-3058D10C809B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEC33F3E-1864-4A35-AC4F-3058D10C809B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
