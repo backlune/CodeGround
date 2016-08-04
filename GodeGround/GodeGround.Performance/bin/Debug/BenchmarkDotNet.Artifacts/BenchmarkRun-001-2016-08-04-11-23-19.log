@@ -1,0 +1,32 @@
+// ***** BenchmarkRunner: Start   *****
+// Found benchmarks:
+
+// Validating benchmarks:
+// ***** BenchmarkRunner: Finish  *****
+
+// * Export *
+  BenchmarkDotNet.Artifacts\results\BenchmarkRun-001-2016-08-04-11-23-19-report.csv
+  BenchmarkDotNet.Artifacts\results\BenchmarkRun-001-2016-08-04-11-23-19-report-github.md
+  BenchmarkDotNet.Artifacts\results\BenchmarkRun-001-2016-08-04-11-23-19-report.html
+
+// * Detailed results *
+Total time: 00:00:00 (0 sec)
+
+// * Summary *
+
+Host Process Environment Information:
+BenchmarkDotNet=v0.9.8.0
+OS=Microsoft Windows NT 6.2.9200.0
+Processor=Intel(R) Xeon(R) CPU E5-1620 v3 3.50GHz, ProcessorCount=8
+Frequency=3410080 ticks, Resolution=293.2483 ns, Timer=TSC
+CLR=MS.NET 4.0.30319.42000, Arch=32-bit DEBUG [AttachedDebugger]
+GC=Concurrent Workstation
+JitModules=clrjit-v4.6.1080.0
+
+There are no benchmarks found 
+
+
+// * Warnings * 
+Benchmark was executed with attached debugger.
+
+// ***** BenchmarkRunner: End *****

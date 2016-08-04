@@ -1,0 +1,6 @@
+F:\Development\CodeGround\GodeGround\GodeGround.Security\bin\Debug\GodeGround.Security.exe.config
+F:\Development\CodeGround\GodeGround\GodeGround.Security\bin\Debug\GodeGround.Security.exe
+F:\Development\CodeGround\GodeGround\GodeGround.Security\bin\Debug\GodeGround.Security.pdb
+F:\Development\CodeGround\GodeGround\GodeGround.Security\obj\Debug\GodeGround.Security.csprojResolveAssemblyReference.cache
+F:\Development\CodeGround\GodeGround\GodeGround.Security\obj\Debug\GodeGround.Security.exe
+F:\Development\CodeGround\GodeGround\GodeGround.Security\obj\Debug\GodeGround.Security.pdb

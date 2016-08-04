@@ -1,0 +1,382 @@
+// ***** BenchmarkRunner: Start   *****
+// Found benchmarks:
+//   StringBuilderPerformance_GenerateFullTypeNameRegular_ConcurrentWorkstationGC
+//   StringBuilderPerformance_GenerateFullTypeName_ConcurrentWorkstationGC
+
+// Validating benchmarks:
+Assembly GodeGround.Performance, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null which defines benchmarks is non-optimized
+// **************************
+// Benchmark: StringBuilderPerformance_GenerateFullTypeNameRegular_ConcurrentWorkstationGC
+// *** Generate *** 
+// Result = Success
+// BinariesDirectoryPath = F:\Development\CodeGround\GodeGround\GodeGround.Performance\bin\Debug
+
+// *** Build ***
+BuildScript: F:\Development\CodeGround\GodeGround\GodeGround.Performance\bin\Debug\BDN.Auto.bat
+// Result = Success
+
+// *** Execute ***
+// Launch: 1
+
+// Benchmark Process Environment Information:
+// CLR=MS.NET 4.0.30319.42000, Arch=32-bit RELEASE
+// GC=Concurrent Workstation
+
+Pilot 1: 4 op, 270374.89 ns, 67.5937 us/op
+Pilot 2: 8 op, 28445.08 ns, 3.5556 us/op
+Pilot 3: 16 op, 50438.7 ns, 3.1524 us/op
+Pilot 4: 32 op, 94425.94 ns, 2.9508 us/op
+Pilot 5: 64 op, 205567.02 ns, 3.2120 us/op
+Pilot 6: 128 op, 391486.42 ns, 3.0585 us/op
+Pilot 7: 256 op, 805846.2 ns, 3.1478 us/op
+Pilot 8: 512 op, 1661837.85 ns, 3.2458 us/op
+Pilot 9: 1024 op, 3075001.17 ns, 3.0029 us/op
+Pilot 10: 2048 op, 6122143.76 ns, 2.9893 us/op
+Pilot 11: 4096 op, 12210857.22 ns, 2.9812 us/op
+Pilot 12: 8192 op, 23645779.57 ns, 2.8864 us/op
+Pilot 13: 16384 op, 47492140.95 ns, 2.8987 us/op
+Pilot 14: 32768 op, 95248205.32 ns, 2.9067 us/op
+Pilot 15: 65536 op, 190284685.4 ns, 2.9035 us/op
+Pilot 16: 131072 op, 380611012.06 ns, 2.9038 us/op
+
+IdleWarmup 1: 131072 op, 231959.37 ns, 1.7697 ns/op
+IdleWarmup 2: 131072 op, 219349.69 ns, 1.6735 ns/op
+IdleWarmup 3: 131072 op, 224921.41 ns, 1.7160 ns/op
+IdleWarmup 4: 131072 op, 313189.13 ns, 2.3894 ns/op
+IdleWarmup 5: 131072 op, 226094.4 ns, 1.7250 ns/op
+IdleWarmup 6: 131072 op, 221695.68 ns, 1.6914 ns/op
+IdleWarmup 7: 131072 op, 230786.37 ns, 1.7608 ns/op
+
+IdleTarget 1: 131072 op, 225507.91 ns, 1.7205 ns/op
+IdleTarget 2: 131072 op, 219056.44 ns, 1.6713 ns/op
+IdleTarget 3: 131072 op, 219349.69 ns, 1.6735 ns/op
+IdleTarget 4: 131072 op, 228733.64 ns, 1.7451 ns/op
+IdleTarget 5: 131072 op, 239583.82 ns, 1.8279 ns/op
+IdleTarget 6: 131072 op, 219056.44 ns, 1.6713 ns/op
+IdleTarget 7: 131072 op, 224628.16 ns, 1.7138 ns/op
+IdleTarget 8: 131072 op, 229320.13 ns, 1.7496 ns/op
+IdleTarget 9: 131072 op, 221695.68 ns, 1.6914 ns/op
+IdleTarget 10: 131072 op, 226387.65 ns, 1.7272 ns/op
+
+MainWarmup 1: 131072 op, 401337505.28 ns, 3.0620 us/op
+MainWarmup 2: 131072 op, 371392753.25 ns, 2.8335 us/op
+MainWarmup 3: 131072 op, 369679596.96 ns, 2.8204 us/op
+MainWarmup 4: 131072 op, 370349375.97 ns, 2.8255 us/op
+MainWarmup 5: 131072 op, 369307464.93 ns, 2.8176 us/op
+MainWarmup 6: 131072 op, 375978276.17 ns, 2.8685 us/op
+MainWarmup 7: 131072 op, 376333399.8 ns, 2.8712 us/op
+
+MainTarget 1: 131072 op, 389310514.71 ns, 2.9702 us/op
+MainTarget 2: 131072 op, 379825693.24 ns, 2.8978 us/op
+MainTarget 3: 131072 op, 382609792.15 ns, 2.9191 us/op
+MainTarget 4: 131072 op, 383469889.27 ns, 2.9256 us/op
+MainTarget 5: 131072 op, 402440411.96 ns, 3.0704 us/op
+MainTarget 6: 131072 op, 386386829.63 ns, 2.9479 us/op
+MainTarget 7: 131072 op, 378122507.39 ns, 2.8848 us/op
+MainTarget 8: 131072 op, 379301658.61 ns, 2.8938 us/op
+MainTarget 9: 131072 op, 373839616.67 ns, 2.8522 us/op
+MainTarget 10: 131072 op, 372215021.35 ns, 2.8398 us/op
+
+Result 1: 131072 op, 389085446.68 ns, 2.9685 us/op
+Result 2: 131072 op, 379600625.21 ns, 2.8961 us/op
+Result 3: 131072 op, 382384724.11 ns, 2.9174 us/op
+Result 4: 131072 op, 383244821.24 ns, 2.9239 us/op
+Result 5: 131072 op, 402215343.92 ns, 3.0687 us/op
+Result 6: 131072 op, 386161761.6 ns, 2.9462 us/op
+Result 7: 131072 op, 377897439.36 ns, 2.8831 us/op
+Result 8: 131072 op, 379076590.58 ns, 2.8921 us/op
+Result 9: 131072 op, 373614548.63 ns, 2.8505 us/op
+Result 10: 131072 op, 371989953.31 ns, 2.8381 us/op
+
+// Launch: 2
+
+// Benchmark Process Environment Information:
+// CLR=MS.NET 4.0.30319.42000, Arch=32-bit RELEASE
+// GC=Concurrent Workstation
+
+Pilot 1: 4 op, 268322.15 ns, 67.0805 us/op
+Pilot 2: 8 op, 27565.34 ns, 3.4457 us/op
+Pilot 3: 16 op, 51904.94 ns, 3.2441 us/op
+Pilot 4: 32 op, 95012.43 ns, 2.9691 us/op
+Pilot 5: 64 op, 196183.08 ns, 3.0654 us/op
+Pilot 6: 128 op, 375651.01 ns, 2.9348 us/op
+Pilot 7: 256 op, 985607.38 ns, 3.8500 us/op
+Pilot 8: 512 op, 2276486.18 ns, 4.4463 us/op
+Pilot 9: 1024 op, 3068549.71 ns, 2.9966 us/op
+Pilot 10: 2048 op, 6001032.23 ns, 2.9302 us/op
+Pilot 11: 4096 op, 12039013.75 ns, 2.9392 us/op
+Pilot 12: 8192 op, 22908846.71 ns, 2.7965 us/op
+Pilot 13: 16384 op, 45790128.09 ns, 2.7948 us/op
+Pilot 14: 32768 op, 92500469.2 ns, 2.8229 us/op
+Pilot 15: 65536 op, 184313857.74 ns, 2.8124 us/op
+Pilot 16: 131072 op, 382629146.53 ns, 2.9192 us/op
+
+IdleWarmup 1: 131072 op, 262163.94 ns, 2.0002 ns/op
+IdleWarmup 2: 131072 op, 253659.74 ns, 1.9353 ns/op
+IdleWarmup 3: 131072 op, 307030.92 ns, 2.3425 ns/op
+IdleWarmup 4: 131072 op, 219056.44 ns, 1.6713 ns/op
+IdleWarmup 5: 131072 op, 297940.22 ns, 2.2731 ns/op
+IdleWarmup 6: 131072 op, 293834.75 ns, 2.2418 ns/op
+IdleWarmup 7: 131072 op, 294128 ns, 2.2440 ns/op
+
+IdleTarget 1: 131072 op, 271841.13 ns, 2.0740 ns/op
+IdleTarget 2: 131072 op, 277706.09 ns, 2.1187 ns/op
+IdleTarget 3: 131072 op, 219056.44 ns, 1.6713 ns/op
+IdleTarget 4: 131072 op, 219642.94 ns, 1.6757 ns/op
+IdleTarget 5: 131072 op, 219936.19 ns, 1.6780 ns/op
+IdleTarget 6: 131072 op, 219349.69 ns, 1.6735 ns/op
+IdleTarget 7: 131072 op, 219056.44 ns, 1.6713 ns/op
+IdleTarget 8: 131072 op, 220522.69 ns, 1.6825 ns/op
+IdleTarget 9: 131072 op, 227853.89 ns, 1.7384 ns/op
+IdleTarget 10: 131072 op, 229320.13 ns, 1.7496 ns/op
+
+MainWarmup 1: 131072 op, 377764158.03 ns, 2.8821 us/op
+MainWarmup 2: 131072 op, 370411837.85 ns, 2.8260 us/op
+MainWarmup 3: 131072 op, 377186752.22 ns, 2.8777 us/op
+MainWarmup 4: 131072 op, 371845528.55 ns, 2.8370 us/op
+MainWarmup 5: 131072 op, 381913327.55 ns, 2.9138 us/op
+MainWarmup 6: 131072 op, 374033160.51 ns, 2.8536 us/op
+MainWarmup 7: 131072 op, 384043482.85 ns, 2.9300 us/op
+
+MainTarget 1: 131072 op, 391751513.16 ns, 2.9888 us/op
+MainTarget 2: 131072 op, 393795453.48 ns, 3.0044 us/op
+MainTarget 3: 131072 op, 376214634.26 ns, 2.8703 us/op
+MainTarget 4: 131072 op, 377560643.74 ns, 2.8806 us/op
+MainTarget 5: 131072 op, 391468528.6 ns, 2.9867 us/op
+MainTarget 6: 131072 op, 401109064.89 ns, 3.0602 us/op
+MainTarget 7: 131072 op, 418884894.2 ns, 3.1958 us/op
+MainTarget 8: 131072 op, 445934406.23 ns, 3.4022 us/op
+MainTarget 9: 131072 op, 401062438.42 ns, 3.0599 us/op
+MainTarget 10: 131072 op, 379020433.54 ns, 2.8917 us/op
+MainTarget 11: 131072 op, 388696746.12 ns, 2.9655 us/op
+MainTarget 12: 131072 op, 377950663.91 ns, 2.8835 us/op
+MainTarget 13: 131072 op, 370872530.85 ns, 2.8295 us/op
+MainTarget 14: 131072 op, 403683491.3 ns, 3.0799 us/op
+
+Result 1: 131072 op, 391531283.72 ns, 2.9871 us/op
+Result 2: 131072 op, 393575224.04 ns, 3.0027 us/op
+Result 3: 131072 op, 375994404.82 ns, 2.8686 us/op
+Result 4: 131072 op, 377340414.3 ns, 2.8789 us/op
+Result 5: 131072 op, 391248299.16 ns, 2.9850 us/op
+Result 6: 131072 op, 400888835.45 ns, 3.0585 us/op
+Result 7: 131072 op, 418664664.76 ns, 3.1942 us/op
+Result 8: 131072 op, 445714176.79 ns, 3.4005 us/op
+Result 9: 131072 op, 400842208.98 ns, 3.0582 us/op
+Result 10: 131072 op, 378800204.1 ns, 2.8900 us/op
+Result 11: 131072 op, 388476516.68 ns, 2.9638 us/op
+Result 12: 131072 op, 377730434.48 ns, 2.8819 us/op
+Result 13: 131072 op, 370652301.41 ns, 2.8279 us/op
+Result 14: 131072 op, 403463261.86 ns, 3.0782 us/op
+
+
+Mean = 2.9692 us, StdError = 0.0264 us (0.89%); N = 24, StdDev = 0.1291 us
+Min = 2.8279 us, Q1 = 2.8825 us, Median = 2.9351 us, Q3 = 3.0305 us, Max = 3.4005 us
+IQR = 0.1480 us, LowerFence = 2.6605 us, UpperFence = 3.2524 us
+ConfidenceInterval = [2.9175 us; 3.0208 us] (CI 95%)
+
+
+// **************************
+// Benchmark: StringBuilderPerformance_GenerateFullTypeName_ConcurrentWorkstationGC
+// *** Generate *** 
+// Result = Success
+// BinariesDirectoryPath = F:\Development\CodeGround\GodeGround\GodeGround.Performance\bin\Debug
+
+// *** Build ***
+BuildScript: F:\Development\CodeGround\GodeGround\GodeGround.Performance\bin\Debug\BDN.Auto.bat
+// Result = Success
+
+// *** Execute ***
+// Launch: 1
+
+// Benchmark Process Environment Information:
+// CLR=MS.NET 4.0.30319.42000, Arch=32-bit RELEASE
+// GC=Concurrent Workstation
+
+Pilot 1: 4 op, 275946.61 ns, 68.9867 us/op
+Pilot 2: 8 op, 39881.76 ns, 4.9852 us/op
+Pilot 3: 16 op, 79763.52 ns, 4.9852 us/op
+Pilot 4: 32 op, 129615.73 ns, 4.0505 us/op
+Pilot 5: 64 op, 179467.93 ns, 2.8042 us/op
+Pilot 6: 128 op, 527260.36 ns, 4.1192 us/op
+Pilot 7: 256 op, 699397.08 ns, 2.7320 us/op
+Pilot 8: 512 op, 1693801.9 ns, 3.3082 us/op
+Pilot 9: 1024 op, 2803453.29 ns, 2.7377 us/op
+Pilot 10: 2048 op, 5484622.06 ns, 2.6780 us/op
+Pilot 11: 4096 op, 12195901.56 ns, 2.9775 us/op
+Pilot 12: 8192 op, 24552503.17 ns, 2.9971 us/op
+Pilot 13: 16384 op, 44540890.54 ns, 2.7186 us/op
+Pilot 14: 32768 op, 90815171.49 ns, 2.7715 us/op
+Pilot 15: 65536 op, 176452458.59 ns, 2.6925 us/op
+Pilot 16: 131072 op, 348500621.69 ns, 2.6588 us/op
+
+IdleWarmup 1: 131072 op, 221402.43 ns, 1.6892 ns/op
+IdleWarmup 2: 131072 op, 231372.87 ns, 1.7652 ns/op
+IdleWarmup 3: 131072 op, 263630.18 ns, 2.0113 ns/op
+IdleWarmup 4: 131072 op, 262163.94 ns, 2.0002 ns/op
+IdleWarmup 5: 131072 op, 310549.9 ns, 2.3693 ns/op
+
+IdleTarget 1: 131072 op, 229026.88 ns, 1.7473 ns/op
+IdleTarget 2: 131072 op, 219936.19 ns, 1.6780 ns/op
+IdleTarget 3: 131072 op, 219349.69 ns, 1.6735 ns/op
+IdleTarget 4: 131072 op, 227853.89 ns, 1.7384 ns/op
+IdleTarget 5: 131072 op, 246035.28 ns, 1.8771 ns/op
+IdleTarget 6: 131072 op, 225214.66 ns, 1.7183 ns/op
+IdleTarget 7: 131072 op, 229026.88 ns, 1.7473 ns/op
+IdleTarget 8: 131072 op, 219936.19 ns, 1.6780 ns/op
+IdleTarget 9: 131072 op, 228147.14 ns, 1.7406 ns/op
+IdleTarget 10: 131072 op, 221109.18 ns, 1.6869 ns/op
+
+MainWarmup 1: 131072 op, 350690306.39 ns, 2.6756 us/op
+MainWarmup 2: 131072 op, 359108290.71 ns, 2.7398 us/op
+MainWarmup 3: 131072 op, 350007917.7 ns, 2.6703 us/op
+MainWarmup 4: 131072 op, 359621475.16 ns, 2.7437 us/op
+MainWarmup 5: 131072 op, 369091340.97 ns, 2.8159 us/op
+
+MainTarget 1: 131072 op, 349886806.17 ns, 2.6694 us/op
+MainTarget 2: 131072 op, 347990076.48 ns, 2.6550 us/op
+MainTarget 3: 131072 op, 352539236.62 ns, 2.6897 us/op
+MainTarget 4: 131072 op, 363649826.4 ns, 2.7744 us/op
+MainTarget 5: 131072 op, 354560890.07 ns, 2.7051 us/op
+MainTarget 6: 131072 op, 350377703.75 ns, 2.6732 us/op
+MainTarget 7: 131072 op, 358283676.63 ns, 2.7335 us/op
+MainTarget 8: 131072 op, 349536667.76 ns, 2.6668 us/op
+MainTarget 9: 131072 op, 349744874.02 ns, 2.6683 us/op
+MainTarget 10: 131072 op, 351934265.47 ns, 2.6850 us/op
+
+Result 1: 131072 op, 349660271.9 ns, 2.6677 us/op
+Result 2: 131072 op, 347763542.2 ns, 2.6532 us/op
+Result 3: 131072 op, 352312702.34 ns, 2.6879 us/op
+Result 4: 131072 op, 363423292.12 ns, 2.7727 us/op
+Result 5: 131072 op, 354334355.79 ns, 2.7034 us/op
+Result 6: 131072 op, 350151169.47 ns, 2.6714 us/op
+Result 7: 131072 op, 358057142.35 ns, 2.7318 us/op
+Result 8: 131072 op, 349310133.49 ns, 2.6650 us/op
+Result 9: 131072 op, 349518339.75 ns, 2.6666 us/op
+Result 10: 131072 op, 351707731.2 ns, 2.6833 us/op
+
+// Launch: 2
+
+// Benchmark Process Environment Information:
+// CLR=MS.NET 4.0.30319.42000, Arch=32-bit RELEASE
+// GC=Concurrent Workstation
+
+Pilot 1: 4 op, 267442.41 ns, 66.8606 us/op
+Pilot 2: 8 op, 23166.61 ns, 2.8958 us/op
+Pilot 3: 16 op, 45746.73 ns, 2.8592 us/op
+Pilot 4: 32 op, 89733.97 ns, 2.8042 us/op
+Pilot 5: 64 op, 178001.69 ns, 2.7813 us/op
+Pilot 6: 128 op, 343100.46 ns, 2.6805 us/op
+Pilot 7: 256 op, 696171.35 ns, 2.7194 us/op
+Pilot 8: 512 op, 1400846.9 ns, 2.7360 us/op
+Pilot 9: 1024 op, 3339511.1 ns, 3.2612 us/op
+Pilot 10: 2048 op, 5564972.08 ns, 2.7173 us/op
+Pilot 11: 4096 op, 11705003.99 ns, 2.8577 us/op
+Pilot 12: 8192 op, 22034087.18 ns, 2.6897 us/op
+Pilot 13: 16384 op, 43664958.01 ns, 2.6651 us/op
+Pilot 14: 32768 op, 87136665.42 ns, 2.6592 us/op
+Pilot 15: 65536 op, 177061241.96 ns, 2.7017 us/op
+Pilot 16: 131072 op, 350146330.88 ns, 2.6714 us/op
+
+IdleWarmup 1: 131072 op, 221109.18 ns, 1.6869 ns/op
+IdleWarmup 2: 131072 op, 228440.39 ns, 1.7429 ns/op
+IdleWarmup 3: 131072 op, 223161.92 ns, 1.7026 ns/op
+IdleWarmup 4: 131072 op, 219936.19 ns, 1.6780 ns/op
+IdleWarmup 5: 131072 op, 229613.38 ns, 1.7518 ns/op
+IdleWarmup 6: 131072 op, 221695.68 ns, 1.6914 ns/op
+IdleWarmup 7: 131072 op, 229320.13 ns, 1.7496 ns/op
+
+IdleTarget 1: 131072 op, 219056.44 ns, 1.6713 ns/op
+IdleTarget 2: 131072 op, 219936.19 ns, 1.6780 ns/op
+IdleTarget 3: 131072 op, 219642.94 ns, 1.6757 ns/op
+IdleTarget 4: 131072 op, 228733.64 ns, 1.7451 ns/op
+IdleTarget 5: 131072 op, 222868.67 ns, 1.7004 ns/op
+IdleTarget 6: 131072 op, 264803.17 ns, 2.0203 ns/op
+IdleTarget 7: 131072 op, 227267.4 ns, 1.7339 ns/op
+IdleTarget 8: 131072 op, 225214.66 ns, 1.7183 ns/op
+IdleTarget 9: 131072 op, 227853.89 ns, 1.7384 ns/op
+IdleTarget 10: 131072 op, 222282.18 ns, 1.6959 ns/op
+
+MainWarmup 1: 131072 op, 353495519.17 ns, 2.6970 us/op
+MainWarmup 2: 131072 op, 348318807.77 ns, 2.6575 us/op
+MainWarmup 3: 131072 op, 351168594.29 ns, 2.6792 us/op
+MainWarmup 4: 131072 op, 350961561.02 ns, 2.6776 us/op
+MainWarmup 5: 131072 op, 363003214 ns, 2.7695 us/op
+MainWarmup 6: 131072 op, 352480000.47 ns, 2.6892 us/op
+MainWarmup 7: 131072 op, 355964082.95 ns, 2.7158 us/op
+
+MainTarget 1: 131072 op, 351971214.75 ns, 2.6853 us/op
+MainTarget 2: 131072 op, 359186294.75 ns, 2.7404 us/op
+MainTarget 3: 131072 op, 345758750.53 ns, 2.6379 us/op
+MainTarget 4: 131072 op, 345714470.04 ns, 2.6376 us/op
+MainTarget 5: 131072 op, 347954006.94 ns, 2.6547 us/op
+MainTarget 6: 131072 op, 352860343.45 ns, 2.6921 us/op
+MainTarget 7: 131072 op, 353464434.85 ns, 2.6967 us/op
+MainTarget 8: 131072 op, 354275559.52 ns, 2.7029 us/op
+MainTarget 9: 131072 op, 348121744.94 ns, 2.6560 us/op
+MainTarget 10: 131072 op, 350023166.61 ns, 2.6705 us/op
+
+Result 1: 131072 op, 351747173.09 ns, 2.6836 us/op
+Result 2: 131072 op, 358962253.08 ns, 2.7387 us/op
+Result 3: 131072 op, 345534708.86 ns, 2.6362 us/op
+Result 4: 131072 op, 345490428.38 ns, 2.6359 us/op
+Result 5: 131072 op, 347729965.28 ns, 2.6530 us/op
+Result 6: 131072 op, 352636301.79 ns, 2.6904 us/op
+Result 7: 131072 op, 353240393.19 ns, 2.6950 us/op
+Result 8: 131072 op, 354051517.85 ns, 2.7012 us/op
+Result 9: 131072 op, 347897703.28 ns, 2.6542 us/op
+Result 10: 131072 op, 349799124.95 ns, 2.6688 us/op
+
+
+Mean = 2.6830 us, StdError = 0.0077 us (0.29%); N = 20, StdDev = 0.0345 us
+Min = 2.6359 us, Q1 = 2.6596 us, Median = 2.6774 us, Q3 = 2.6981 us, Max = 2.7727 us
+IQR = 0.0385 us, LowerFence = 2.6019 us, UpperFence = 2.7558 us
+ConfidenceInterval = [2.6679 us; 2.6981 us] (CI 95%)
+
+
+// ***** BenchmarkRunner: Finish  *****
+
+// * Export *
+  BenchmarkDotNet.Artifacts\results\StringBuilderPerformance-report.csv
+  BenchmarkDotNet.Artifacts\results\StringBuilderPerformance-report-github.md
+  BenchmarkDotNet.Artifacts\results\StringBuilderPerformance-report.html
+
+// * Detailed results *
+StringBuilderPerformance_GenerateFullTypeNameRegular_ConcurrentWorkstationGC
+Mean = 2.9692 us, StdError = 0.0264 us (0.89%); N = 24, StdDev = 0.1291 us
+Min = 2.8279 us, Q1 = 2.8825 us, Median = 2.9351 us, Q3 = 3.0305 us, Max = 3.4005 us
+IQR = 0.1480 us, LowerFence = 2.6605 us, UpperFence = 3.2524 us
+ConfidenceInterval = [2.9175 us; 3.0208 us] (CI 95%)
+
+
+StringBuilderPerformance_GenerateFullTypeName_ConcurrentWorkstationGC
+Mean = 2.6830 us, StdError = 0.0077 us (0.29%); N = 20, StdDev = 0.0345 us
+Min = 2.6359 us, Q1 = 2.6596 us, Median = 2.6774 us, Q3 = 2.6981 us, Max = 2.7727 us
+IQR = 0.0385 us, LowerFence = 2.6019 us, UpperFence = 2.7558 us
+ConfidenceInterval = [2.6679 us; 2.6981 us] (CI 95%)
+
+
+Total time: 00:00:31 (31.79 sec)
+
+// * Summary *
+
+Host Process Environment Information:
+BenchmarkDotNet=v0.9.8.0
+OS=Microsoft Windows NT 6.2.9200.0
+Processor=Intel(R) Xeon(R) CPU E5-1620 v3 3.50GHz, ProcessorCount=8
+Frequency=3410080 ticks, Resolution=293.2483 ns, Timer=TSC
+CLR=MS.NET 4.0.30319.42000, Arch=32-bit DEBUG
+GC=Concurrent Workstation
+JitModules=clrjit-v4.6.1080.0
+
+Type=StringBuilderPerformance  Mode=Throughput  GarbageCollection=Concurrent Workstation  
+
+                      Method |    Median |    StdDev | Scaled |
+---------------------------- |---------- |---------- |------- |
+ GenerateFullTypeNameRegular | 2.9351 us | 0.1291 us |   1.00 |
+        GenerateFullTypeName | 2.6774 us | 0.0345 us |   0.91 |
+
+// * Warnings * 
+Benchmark was built in DEBUG configuration. Please, build it in RELEASE.
+Benchmark was built in DEBUG configuration. Please, build it in RELEASE.
+
+// ***** BenchmarkRunner: End *****

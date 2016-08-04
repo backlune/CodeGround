@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodeGround.Base", "GodeGrou
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodeGround.Performance", "GodeGround.Performance\GodeGround.Performance.csproj", "{CEC33F3E-1864-4A35-AC4F-3058D10C809B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodeGround.Security", "GodeGround.Security\GodeGround.Security.csproj", "{1498A44E-401F-44E4-A1A3-1045CF06E8BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CEC33F3E-1864-4A35-AC4F-3058D10C809B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEC33F3E-1864-4A35-AC4F-3058D10C809B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEC33F3E-1864-4A35-AC4F-3058D10C809B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1498A44E-401F-44E4-A1A3-1045CF06E8BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1498A44E-401F-44E4-A1A3-1045CF06E8BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1498A44E-401F-44E4-A1A3-1045CF06E8BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1498A44E-401F-44E4-A1A3-1045CF06E8BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
