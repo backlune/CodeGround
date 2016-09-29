@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodeGround.Performance", "G
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodeGround.Security", "GodeGround.Security\GodeGround.Security.csproj", "{1498A44E-401F-44E4-A1A3-1045CF06E8BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGround.Algorithms", "CodeGround.Algorithms\CodeGround.Algorithms.csproj", "{EDAF376C-7DB9-4769-ACC4-FF5C364C138D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{1498A44E-401F-44E4-A1A3-1045CF06E8BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1498A44E-401F-44E4-A1A3-1045CF06E8BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1498A44E-401F-44E4-A1A3-1045CF06E8BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDAF376C-7DB9-4769-ACC4-FF5C364C138D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDAF376C-7DB9-4769-ACC4-FF5C364C138D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDAF376C-7DB9-4769-ACC4-FF5C364C138D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDAF376C-7DB9-4769-ACC4-FF5C364C138D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
