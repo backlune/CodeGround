@@ -29,7 +29,11 @@ namespace GodeGround.Performance.Strings
             sb.Append('T'); sb.Append(arity.ToString());
          }
          return sb.ToString();
-      }      [Benchmark]      public string GenerateFullTypeName()
+      }
+
+
+      [Benchmark]
+      public string GenerateFullTypeName()
       {
          string name = "test";
          int arity = 30;
@@ -45,7 +49,9 @@ namespace GodeGround.Performance.Strings
             sb.Append('T'); sb.Append(arity.ToString());
          }
          return GetStringAndReleaseBuilder(sb);
-      }      [ThreadStatic]
+      }
+
+      [ThreadStatic]
       private static StringBuilder cachedStringBuilder;
 
 
@@ -66,6 +72,8 @@ namespace GodeGround.Performance.Strings
          string result = sb.ToString();
          cachedStringBuilder = sb;
          return result;
-      }
+      }
+
+
    }
 }
