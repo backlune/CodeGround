@@ -49,4 +49,7 @@ Temporary Items
 bin/
 obj/
 *.exe
+packages/
 *.pdb
+*.user
+.vs/

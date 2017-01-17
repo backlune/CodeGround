@@ -9,11 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodeGround.Performance", "G
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodeGround.Security", "GodeGround.Security\GodeGround.Security.csproj", "{1498A44E-401F-44E4-A1A3-1045CF06E8BC}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "GodeGround.FSharp", "GodeGround.FSharp\GodeGround.FSharp.fsproj", "{2B235D16-5977-4B7C-9CBD-7E2FB2B8DAE5}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DOTNetVersions", "DOTNetVersions", "{131BA689-8251-4630-B0D7-51953D70B7ED}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGround.NET462", "DOTNetVersions\CodeGround.NET462\CodeGround.NET462.csproj", "{C355380E-BFDF-4221-8A7B-9D33F540F1AC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGround.Algorithms", "CodeGround.Algorithms\CodeGround.Algorithms.csproj", "{EDAF376C-7DB9-4769-ACC4-FF5C364C138D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,19 +29,12 @@ Global
 		{1498A44E-401F-44E4-A1A3-1045CF06E8BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1498A44E-401F-44E4-A1A3-1045CF06E8BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1498A44E-401F-44E4-A1A3-1045CF06E8BC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2B235D16-5977-4B7C-9CBD-7E2FB2B8DAE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B235D16-5977-4B7C-9CBD-7E2FB2B8DAE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2B235D16-5977-4B7C-9CBD-7E2FB2B8DAE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2B235D16-5977-4B7C-9CBD-7E2FB2B8DAE5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C355380E-BFDF-4221-8A7B-9D33F540F1AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C355380E-BFDF-4221-8A7B-9D33F540F1AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C355380E-BFDF-4221-8A7B-9D33F540F1AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C355380E-BFDF-4221-8A7B-9D33F540F1AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDAF376C-7DB9-4769-ACC4-FF5C364C138D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDAF376C-7DB9-4769-ACC4-FF5C364C138D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDAF376C-7DB9-4769-ACC4-FF5C364C138D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDAF376C-7DB9-4769-ACC4-FF5C364C138D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{C355380E-BFDF-4221-8A7B-9D33F540F1AC} = {131BA689-8251-4630-B0D7-51953D70B7ED}
 	EndGlobalSection
 EndGlobal
