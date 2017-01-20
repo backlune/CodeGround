@@ -33,6 +33,7 @@ namespace CodeGround.WebCore.Controllers
 
       [HttpGet("GetJson")]
       [SwaggerResponse(typeof(string))]
+      //[SwaggerResponse(200, typeof())]
       public IActionResult GetJson()
       {
          return Json("value1");

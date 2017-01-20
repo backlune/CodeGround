@@ -11,7 +11,7 @@
       <ResourceDictionary>
          
          
-         <DataTemplate DataType="{x:Type g:IBase2}">
+         <DataTemplate DataType="{x:Type g:Base2}">
             <DataTemplate.Resources>
                <Style x:Key="LabelTextStyle" TargetType="TextBlock">
                   <Setter Property="FontWeight" Value="Bold" />
@@ -23,8 +23,8 @@
                </Style>
             </DataTemplate.Resources>
             <StackPanel Orientation="Vertical" >
-               <TextBlock Style="{StaticResource LabelTextStyle}" Text="Name:" Visibility="{Binding Name}" />
-               <TextBlock Style="{StaticResource InfoTextStyle}" Text="{Binding Name}" Visibility="{Binding Name}" />
+               <TextBlock Style="{StaticResource LabelTextStyle}" Text="Name:"  />
+               <TextBlock Style="{StaticResource InfoTextStyle}" Text="{Binding Name}" />
                
             </StackPanel>
             
@@ -37,7 +37,13 @@
    </Window.Resources> 
    <Grid>
        
-       <ListBox Items="{Binding MyBasicModels}"></ListBox>
+       <ListBox ItemsSource="{Binding MyBasicModels}">
+          <ListBox.ItemTemplate>
+             <DataTemplate>
+                <ContentControl Content="{Binding Path=.}" ></ContentControl>
+             </DataTemplate>
+          </ListBox.ItemTemplate>
+       </ListBox>
        
        
        

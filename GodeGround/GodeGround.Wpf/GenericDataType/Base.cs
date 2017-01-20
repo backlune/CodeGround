@@ -16,5 +16,7 @@ namespace GodeGround.Wpf.GenericDataType
          Model = m;
       }
 
+      public string Name => Model.ToString();
+
    }
 }

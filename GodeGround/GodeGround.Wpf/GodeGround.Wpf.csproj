@@ -61,9 +61,12 @@
     </Compile>
     <Compile Include="GenericDataType\Base.cs" />
     <Compile Include="GenericDataType\Base2.cs" />
+    <Compile Include="GenericDataType\Base3.cs" />
     <Compile Include="GenericDataType\Implementation1.cs" />
     <Compile Include="GenericDataType\Implementation2.cs" />
     <Compile Include="Models\MyBasicModel.cs" />
+    <Compile Include="Models\MyBasicModelDerived.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -95,9 +98,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Page Include="Views\MainWindow.xaml">
       <SubType>Designer</SubType>

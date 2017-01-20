@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using GodeGround.Wpf.ViewModels;
 
 namespace GodeGround.Wpf.Views
 {
@@ -21,7 +22,13 @@ namespace GodeGround.Wpf.Views
    {
       public MainWindow()
       {
+         Loaded += OnLoaded;
          InitializeComponent();
+      }
+
+      private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
+      {
+         DataContext = new MainViewModel();
       }
    }
 }

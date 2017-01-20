@@ -7,15 +7,12 @@ using GodeGround.Wpf.Models;
 
 namespace GodeGround.Wpf.GenericDataType
 {
-   public interface IBase2
-   {
-      object Name { get; }
-   }
 
-   public abstract class Base2<T> : Base<T> where T : MyBasicModel, IBase2
+   public abstract class Base2 : Base<MyBasicModel> // where T : MyBasicModel
    {
-      protected Base2(T m) : base(m)
+      protected Base2(MyBasicModel m) : base(m)
       {
       }
+
    }
 }
