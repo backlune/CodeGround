@@ -12,8 +12,8 @@ namespace CodeGround.ReplacingCodeStrategies
    //TODO EB 20170120: here we should tests the two solution.
    public class ExperimenterCharacterFinder : IFileCharcterFinder
    {
-      private FileCharacterFinder m_oldImpl;
-      private FileCharacterFinderVersion2 m_newImpl;
+      private IFileCharcterFinder m_oldImpl;
+      private IFileCharcterFinder m_newImpl;
       private List<string> m_callbacks;
 
       public ExperimenterCharacterFinder()
@@ -34,13 +34,23 @@ namespace CodeGround.ReplacingCodeStrategies
          });
       }
 
-      public int FintFirstIndex(char c)
+      public bool FoundFirstIndex(char c, out int index)
       {
-         return Scientist.Science<int>("FintFirstIndex", experiment =>
+         bool retval = false;
+         int nativeIndex = 0;
+         Scientist.Science<int>("FintFirstIndex", experiment =>
          {
-            experiment.Use(() => m_oldImpl.FintFirstIndex(c));
-            experiment.Try(() => m_newImpl.FintFirstIndex(c));
+            experiment.Use(() => {  retval = m_oldImpl.FoundFirstIndex(c, out nativeIndex); return nativeIndex;  });
+            experiment.Try(() =>
+            {
+               int managedIndex;
+               m_newImpl.FoundFirstIndex(c, out managedIndex);
+               return managedIndex;
+            });
          });
+
+         index = nativeIndex;
+         return retval;
       }
 
       public void FindAll(char c, ICharFoundCallback callback)

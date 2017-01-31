@@ -24,11 +24,11 @@ namespace CodeGround.ReplacingCodeStrategies.NewSolution
          return true;
       }
 
-      public int FintFirstIndex(char c)
+      public bool FoundFirstIndex(char c, out int index)
       {
-         var index = m_fileString.IndexOf(c, Position);
+         index = m_fileString.IndexOf(c, Position);
          Position = index;
-         return Position;
+         return true;
       }
 
       public void FindAll(char c, ICharFoundCallback callback)
@@ -38,13 +38,18 @@ namespace CodeGround.ReplacingCodeStrategies.NewSolution
 
          while (Position < m_fileString.Length)
          {
-            var subString = m_fileString.Substring(Position, Position + 10);
+            int length = Position + 10 < m_fileString.Length ? 10 : m_fileString.Length - Position;
+            var subString = m_fileString.Substring(Position, length);
 
             var index = subString.IndexOf(c);
-            if(index == -1)
-               break;
+            if (index == -1)
+            {
+               Position += 10;
+               continue;
+            }
+
             callback.CharacterFound(Position + index, subString, index);
-            Position = index;
+            Position += index + 1;
          }
 
          callback.End(DateTime.Now);

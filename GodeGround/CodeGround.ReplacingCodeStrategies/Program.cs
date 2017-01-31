@@ -18,9 +18,15 @@ namespace CodeGround.ReplacingCodeStrategies
          var fileName = args[0];
          var character = args[1].First();
 
+         //const int percentEnabled = 50;
+         //Random rand = new Random();
+         //Scientist.Enabled(() => rand.Next(100) < percentEnabled);
+
          var Exp = new ExperimenterCharacterFinder();
          Exp.Initialize(fileName);
-         Console.WriteLine("First found at:" + Exp.FintFirstIndex(character));
+         int index;
+         Exp.FoundFirstIndex(character, out index);
+         Console.WriteLine("First found at:" + index);
          Exp.Position = 0;
 
          Exp.FindAll(character, new CharFoundCallback());

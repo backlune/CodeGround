@@ -6,7 +6,7 @@ namespace CodeGround.ReplacingCodeStrategies.OldSolution
    {
       bool Initialize(string fileName);
 
-      int FintFirstIndex(char c);
+      bool FoundFirstIndex(char c, out int index);
 
       void FindAll(char c, ICharFoundCallback callback);
 

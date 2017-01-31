@@ -20,7 +20,7 @@ namespace CodeGround.ReplacingCodeStrategies.OldSolution
          return true;
       }
 
-      public int FintFirstIndex(char c)
+      public bool FoundFirstIndex(char c, out int index)
       {
          var sr = new StreamReader(m_fileStream);
          
@@ -34,13 +34,15 @@ namespace CodeGround.ReplacingCodeStrategies.OldSolution
                if (c == buffer[i])
                {
                   Position += i;
-                  return Position;
+                  index = Position;
+                  return true;
 
                }
             }
             Position += readCount;
          }
-         return -1;
+         index = -1;
+         return false;
       }
 
       public void FindAll(char c, ICharFoundCallback callback)
