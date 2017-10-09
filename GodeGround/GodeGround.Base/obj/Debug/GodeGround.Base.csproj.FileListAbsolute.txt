@@ -1,5 +1,0 @@
-F:\Development\CodeGround\GodeGround\GodeGround.Base\bin\Debug\GodeGround.Base.dll
-F:\Development\CodeGround\GodeGround\GodeGround.Base\bin\Debug\GodeGround.Base.pdb
-F:\Development\CodeGround\GodeGround\GodeGround.Base\obj\Debug\GodeGround.Base.csprojResolveAssemblyReference.cache
-F:\Development\CodeGround\GodeGround\GodeGround.Base\obj\Debug\GodeGround.Base.dll
-F:\Development\CodeGround\GodeGround\GodeGround.Base\obj\Debug\GodeGround.Base.pdb

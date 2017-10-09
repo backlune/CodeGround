@@ -53,3 +53,4 @@ packages/
 *.pdb
 *.user
 .vs/
+*.cache
