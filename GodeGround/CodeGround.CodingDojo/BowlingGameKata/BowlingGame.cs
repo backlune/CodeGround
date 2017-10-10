@@ -6,19 +6,52 @@ namespace CodeGround.CodingDojo.BowlingGameKata
 {
     internal class BowlingGame
     {
-        private Player _player;
+        private const int FRAMESINALINE = 10;
+        private Frame _currentFrame;
+        private Frame _previousFrame;
+
+        private List<Frame> CompletedFrames { get; }
 
         public BowlingGame()
         {
-            _player = new Player();
-            Result.Scores.Add(_player, new List<int>());
+
+            _currentFrame = new Frame();
+            CompletedFrames = new List<Frame>();
         }
 
-        public BowlingResult Result { get; internal set; } = new BowlingResult();
+        public bool LineCompleted => CompletedFrames.Count == FRAMESINALINE;
+
+        public int Result => CompletedFrames.Select(f => f.Score).Sum();
 
         internal void Try(int result)
         {
-            Result.Scores[_player].Add(result);
+            _currentFrame.Tries++;
+            _currentFrame.Score += result;
+
+            if (_previousFrame != null)
+            {
+                _previousFrame.Score += result;
+
+                if (!_previousFrame.IsStrike || _currentFrame.Tries == 2)
+                {
+                    CompletedFrames.Add(_previousFrame);
+                    _previousFrame = null;
+                }
+            }
+
+            if (_currentFrame.Score == 10)
+            {
+                _previousFrame = _currentFrame;
+                _previousFrame.IsStrike = _currentFrame.Tries == 1;
+                _currentFrame = new Frame();
+                return;
+            }
+
+            if (_currentFrame.Tries == 2)
+            {
+                CompletedFrames.Add(_currentFrame);
+                _currentFrame = new Frame();
+            }
         }
     }
 
