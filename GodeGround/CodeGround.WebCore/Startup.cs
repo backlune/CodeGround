@@ -10,6 +10,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyModel;
 using Microsoft.Extensions.Logging;
 using NSwag.AspNetCore;
+using NSwag.CodeGeneration.SwaggerGenerators.WebApi.Processors;
+using NSwag.CodeGeneration.SwaggerGenerators.WebApi.Processors.Contexts;
+using Microsoft.AspNetCore.Http;
+using NJsonSchema;
+using NSwag;
 
 namespace CodeGround.WebCore
 {
@@ -18,10 +23,10 @@ namespace CodeGround.WebCore
       public Startup(IHostingEnvironment env)
       {
          var builder = new ConfigurationBuilder()
-             .SetBasePath(env.ContentRootPath)
-             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-             .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-             .AddEnvironmentVariables();
+            .SetBasePath(env.ContentRootPath)
+            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+            .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+            .AddEnvironmentVariables();
          Configuration = builder.Build();
       }
 
@@ -32,8 +37,8 @@ namespace CodeGround.WebCore
       {
          // Add framework services.
          services.AddMvc()
-          .AddApplicationPart(Assembly.GetExecutingAssembly())
-          .AddControllersAsServices();
+            .AddApplicationPart(Assembly.GetExecutingAssembly())
+            .AddControllersAsServices();
 
 
          // Add swagger
@@ -50,15 +55,65 @@ namespace CodeGround.WebCore
          app.UseMvc();
 
          //Setup swagger
-         app.UseSwagger(Assembly.GetExecutingAssembly(), new SwaggerOwinSettings()
+         var setting = new SwaggerOwinSettings()
          {
             DefaultPropertyNameHandling = NJsonSchema.PropertyNameHandling.CamelCase,
-           // Title = "MyApi",
-            Version = "1.0"
+            Title = "Upload2",
+            Version = "1.0",
 
+         };
+
+         setting.OperationProcessors.Add(new MyOperationProcessor());
+         app.UseSwagger(Assembly.GetExecutingAssembly(), setting);
+
+
+
+
+         var uiSettings = new SwaggerUiOwinSettings();
+         //uiSettings.OperationProcessors.Add(new MyOperationProcessor());
+         app.UseSwaggerUi(Assembly.GetExecutingAssembly(), uiSettings);
+      }
+   }
+
+   public class MyOperationProcessor : IOperationProcessor
+   {
+      #region Implementation of IOperationProcessor
+
+      public Task<bool> ProcessAsync(OperationProcessorContext context)
+      {
+         return Task.Run(() =>
+         {
+            var attrib =
+               (MultiFormFileDataAttribute) context.MethodInfo.GetCustomAttribute(typeof(MultiFormFileDataAttribute));
+
+            if (attrib == null)
+               return true;
+
+            var operationParameter = new SwaggerParameter()
+            {
+               Name = attrib.Name,
+               Kind = SwaggerParameterKind.FormData,
+               Type = JsonObjectType.File,
+               IsRequired = true,
+               Description = attrib.Documentation
+            };
+
+            context.OperationDescription.Operation.Parameters.Add(operationParameter);
+            context.OperationDescription.Operation.Consumes = new List<string>() {"multipart/form-data"};
+
+            return true;
          });
 
-         app.UseSwaggerUi(Assembly.GetExecutingAssembly(), new SwaggerUiOwinSettings());
       }
+
+      #endregion
+   }
+
+   [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
+   public class MultiFormFileDataAttribute : Attribute
+   {
+      public string Name { get; set; }
+
+      public string Documentation { get; set; }
    }
 }

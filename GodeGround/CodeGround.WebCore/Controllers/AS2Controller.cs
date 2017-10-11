@@ -55,14 +55,14 @@ namespace CodeGround.WebCore.Controllers
          return Json(new AS2Data {Value1 = 5, Value2 = "value", Value3 = 99.75});
       }
 
-      // GET api/values/5
-      [HttpGet("{id}")]
-      //[SwaggerResponse(200, Type = typeof(AS2Data))]
-      [Produces(typeof(AS2Data))]
-      public IActionResult Get2(int id)
-      {
-         return Json(new AS2Data { Value1 = 5, Value2 = "value", Value3 = 99.75 });
-      }
+      //// GET api/values/5
+      //[HttpGet("{id}")]
+      ////[SwaggerResponse(200, Type = typeof(AS2Data))]
+      //[Produces(typeof(AS2Data))]
+      //public IActionResult Get2(int id)
+      //{
+      //   return Json(new AS2Data { Value1 = 5, Value2 = "value", Value3 = 99.75 });
+      //}
 
       //get api/as2/get2?id=2%name=test
 

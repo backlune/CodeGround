@@ -4,7 +4,7 @@ namespace GodeGround.Wpf.GenericDataType
 {
    public class Implementation2 : Base3
    {
-      public Implementation2(MyBasicModel m) : base(m)
+      public Implementation2(MyBasicModel m) : base(m as MyBasicModelDerived) 
       {
       }
 
