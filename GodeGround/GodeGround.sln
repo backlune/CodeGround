@@ -1,8 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DotNetVersions", "DotNetVersions", "{C86CF1AD-C7DA-46EF-9444-1BCC998752BB}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodeGround.Base", "GodeGround.Base\GodeGround.Base.csproj", "{28DA6EB8-A8A7-45A0-BF56-69CEC0C20553}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodeGround.Performance", "GodeGround.Performance\GodeGround.Performance.csproj", "{CEC33F3E-1864-4A35-AC4F-3058D10C809B}"
@@ -10,8 +12,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodeGround.Security", "GodeGround.Security\GodeGround.Security.csproj", "{1498A44E-401F-44E4-A1A3-1045CF06E8BC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGround.Algorithms", "CodeGround.Algorithms\CodeGround.Algorithms.csproj", "{EDAF376C-7DB9-4769-ACC4-FF5C364C138D}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DotNetVersions", "DotNetVersions", "{C86CF1AD-C7DA-46EF-9444-1BCC998752BB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGround.NET462", "DOTNetVersions\CodeGround.NET462\CodeGround.NET462.csproj", "{C355380E-BFDF-4221-8A7B-9D33F540F1AC}"
 EndProject
@@ -21,11 +21,11 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "GodeGround.FSharp", "GodeGr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodeGround.WEBAPI", "GodeGround.WEBAPI\GodeGround.WEBAPI.csproj", "{6C38999B-C801-47B7-8889-67F47815E1F4}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "CodeGround.WebCore", "CodeGround.WebCore\CodeGround.WebCore.xproj", "{94F5D525-C60F-4076-B850-2FDB7E30D9EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeGround.WebCore", "CodeGround.WebCore\CodeGround.WebCore.csproj", "{94F5D525-C60F-4076-B850-2FDB7E30D9EA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGround.ReplacingCodeStrategies", "CodeGround.ReplacingCodeStrategies\CodeGround.ReplacingCodeStrategies.csproj", "{F49A7F26-D8C9-4417-A17C-BCDA9DAD74A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGround.UnitTesting", "CodeGround.UnitTesting\CodeGround.UnitTesting.csproj", "{BA4C1DF6-7BA3-445D-9BE1-C9A5C31F3C8F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGround.CodingDojo", "CodeGround.CodingDojo\CodeGround.CodingDojo.csproj", "{2E46DB10-067D-46A7-97B5-AB083CD47F30}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,15 +73,18 @@ Global
 		{F49A7F26-D8C9-4417-A17C-BCDA9DAD74A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F49A7F26-D8C9-4417-A17C-BCDA9DAD74A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F49A7F26-D8C9-4417-A17C-BCDA9DAD74A3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BA4C1DF6-7BA3-445D-9BE1-C9A5C31F3C8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BA4C1DF6-7BA3-445D-9BE1-C9A5C31F3C8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BA4C1DF6-7BA3-445D-9BE1-C9A5C31F3C8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BA4C1DF6-7BA3-445D-9BE1-C9A5C31F3C8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E46DB10-067D-46A7-97B5-AB083CD47F30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E46DB10-067D-46A7-97B5-AB083CD47F30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E46DB10-067D-46A7-97B5-AB083CD47F30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E46DB10-067D-46A7-97B5-AB083CD47F30}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C355380E-BFDF-4221-8A7B-9D33F540F1AC} = {C86CF1AD-C7DA-46EF-9444-1BCC998752BB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {71D701A3-9DD3-472D-995E-2675DF54CE91}
 	EndGlobalSection
 EndGlobal
