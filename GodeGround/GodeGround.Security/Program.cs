@@ -16,8 +16,8 @@ namespace GodeGround.Security
             var unsecure_fileName = "C:\\Users\\emilb\\Downloads\\unsecure_Faktura 33 Emil Accrual AB.pdf";
 
             using (var fs = File.Open(fileName, FileMode.Open))
-            using (var output = File.Open(unsecure_fileName, FileMode.OpenOrCreate))
-            using (var ms = PdfDocumentScripting.AddAutoPrint(fs))
+            using (var output = File.Create(unsecure_fileName))
+            using (var ms = PdfDocumentScripting.AddAutoPrintOnPage(fs))
             {
                 ms.Position = 0;
                 ms.CopyTo(output);
