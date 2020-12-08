@@ -118,7 +118,7 @@ namespace GodeGround.Security
             PdfSharp.Pdf.PdfPage p1 = outputDocument.Pages[0];
             var gfx = XGraphics.FromPdfPage(p1);
             var annot = new PdfLinkAnnotation();
-            annot.Rectangle = new PdfRectangle(gfx.Transformer.WorldToDefaultPage(new XRect(new XPoint(100, 100), new XSize(600, 600))));
+            annot.Rectangle = new PdfRectangle(gfx.Transformer.WorldToDefaultPage(new XRect(new XPoint(0, 0), new XSize(600, 600))));
             annot.Elements["/A"] = dictJS;
             //annot.Elements.Add("/Names",dictJS);
             p1.Annotations.Add(annot);
