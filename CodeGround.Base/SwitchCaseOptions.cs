@@ -3,9 +3,6 @@ using System.Linq;
 
 namespace GodeGround.Base
 {
-    class SwitchCaseOptions
-    {
-    }
 
     enum Color { Red, Green, Blue, Rainbow }
 

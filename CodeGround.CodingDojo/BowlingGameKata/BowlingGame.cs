@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace CodeGround.CodingDojo.BowlingGameKata
@@ -7,15 +6,14 @@ namespace CodeGround.CodingDojo.BowlingGameKata
     internal class BowlingGame
     {
         private const int FRAMESINALINE = 10;
-        private Frame _currentFrame;
-        private Frame _previousFrame;
+        private Frame currentFrame;
+        private Frame previousFrame;
 
         private List<Frame> CompletedFrames { get; }
 
         public BowlingGame()
         {
-
-            _currentFrame = new Frame();
+            currentFrame = new Frame();
             CompletedFrames = new List<Frame>();
         }
 
@@ -25,32 +23,32 @@ namespace CodeGround.CodingDojo.BowlingGameKata
 
         internal void Try(int result)
         {
-            _currentFrame.Tries++;
-            _currentFrame.Score += result;
+            currentFrame.Tries++;
+            currentFrame.Score += result;
 
-            if (_previousFrame != null)
+            if (previousFrame != null)
             {
-                _previousFrame.Score += result;
+                previousFrame.Score += result;
 
-                if (!_previousFrame.IsStrike || _currentFrame.Tries == 2)
+                if (!previousFrame.IsStrike || currentFrame.Tries == 2)
                 {
-                    CompletedFrames.Add(_previousFrame);
-                    _previousFrame = null;
+                    CompletedFrames.Add(previousFrame);
+                    previousFrame = null;
                 }
             }
 
-            if (_currentFrame.Score == 10)
+            if (currentFrame.Score == 10)
             {
-                _previousFrame = _currentFrame;
-                _previousFrame.IsStrike = _currentFrame.Tries == 1;
-                _currentFrame = new Frame();
+                previousFrame = currentFrame;
+                previousFrame.IsStrike = currentFrame.Tries == 1;
+                currentFrame = new Frame();
                 return;
             }
 
-            if (_currentFrame.Tries == 2)
+            if (currentFrame.Tries == 2)
             {
-                CompletedFrames.Add(_currentFrame);
-                _currentFrame = new Frame();
+                CompletedFrames.Add(currentFrame);
+                currentFrame = new Frame();
             }
         }
     }
@@ -60,6 +58,7 @@ namespace CodeGround.CodingDojo.BowlingGameKata
         private readonly Dictionary<Player, List<int>> scores = new Dictionary<Player, List<int>>();
 
         public Dictionary<Player, List<int>> Scores { get => scores; }
+
         public bool GameComplete => Scores.All(x => x.Value.Count() == 20);
 
         internal int GetCurrentScore()
