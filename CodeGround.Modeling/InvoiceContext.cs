@@ -33,7 +33,7 @@ namespace CodeGround.Modeling
             x.Entity<Invoice>()
                .HasOne(i => i.RecurringInvoice)
                .WithMany(r => r.CreatedInvoices)
-               .OnDelete(DeleteBehavior.Restrict);
+               .OnDelete(DeleteBehavior.NoAction);
 
             x.Entity<Invoice>()
                 .HasOne(x => x.TemplateRecurringInvoice)

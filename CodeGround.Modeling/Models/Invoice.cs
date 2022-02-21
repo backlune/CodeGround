@@ -25,7 +25,6 @@ namespace GodeGround.Modeling.Models
         public Guid? RecurringInvoiceId { get; set; }
         public RecurringInvoice RecurringInvoice { get; set; }
 
-        //public Guid? TemplateRecurringInvoiceId { get; set; }
         public RecurringInvoice TemplateRecurringInvoice { get; set; }
     }
 }
