@@ -2,6 +2,7 @@
 using GitHub;
 using System;
 using System.Linq;
+using CodeGround.ReplacingCodeStrategies.CharacterFinder;
 
 namespace CodeGround.ReplacingCodeStrategies
 {

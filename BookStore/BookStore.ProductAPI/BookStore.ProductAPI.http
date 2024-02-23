@@ -1,0 +1,19 @@
+@BookStore.ProductAPI_HostAddress = http://localhost:5243
+
+GET {{BookStore.ProductAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+GET {{BookStore.ProductAPI_HostAddress}}/products/
+Accept: application/json
+
+###
+POST {{BookStore.ProductAPI_HostAddress}}/products
+Accept: application/json
+Content-Type: application/json
+
+{
+    "Id": "cc828434-af92-4b92-9be0-88799580f8b8",
+    "Name": "Horse"
+}
