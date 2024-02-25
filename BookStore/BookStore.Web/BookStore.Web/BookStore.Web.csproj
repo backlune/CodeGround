@@ -9,6 +9,8 @@
   <ItemGroup>
     <ProjectReference Include="..\BookStore.Web.Client\BookStore.Web.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="RestSharp" Version="106.15.0" />
   </ItemGroup>
 
 </Project>

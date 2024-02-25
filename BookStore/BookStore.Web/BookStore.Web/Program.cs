@@ -33,3 +33,4 @@ app.MapRazorComponents<App>()
     .AddAdditionalAssemblies(typeof(BookStore.Web.Client._Imports).Assembly);
 
 app.Run();
+

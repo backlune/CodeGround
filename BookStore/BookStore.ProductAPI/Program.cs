@@ -1,4 +1,7 @@
+using AutoMapper;
+using BookStore.ProductAPI;
 using BookStore.ProductAPI.Data;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +15,10 @@ builder.Services.AddDbContext<ProductDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("SqliteConnection")));
 //builder.Services.AddDbContextFactory<ProductDbContext>()
 
+var mapper = MappingConfig.RegisterMaps().CreateMapper();
+builder.Services.AddSingleton(mapper);
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,32 +31,30 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 
-app.MapPost("/products", async ([FromBody] ProductDto product, [FromServices] ProductDbContext dbContext) =>
-{
-    var p = new Product
+app.MapPost("/products", async ([FromBody] ProductDto productDto, [FromServices] ProductDbContext dbContext, [FromServices] IMapper mapper) =>
     {
-        Name = product.Name,
-        Description = "A product",
-        Price = 10,
-        ImageUrl = "https://codeproject.freetls.fastly.net/App_Themes/CodeProject/Img/logo250x135.gif"
-    };
+        var product = mapper.Map<ProductDto, Product>(productDto);
 
-    dbContext.Products.Add(p);
-    await dbContext.SaveChangesAsync();
-})
+        dbContext.Products.Add(product);
+        await dbContext.SaveChangesAsync();
+    })
     .WithName("AddProduct")
     .WithOpenApi();
 
-app.MapGet("/products/{id}", async ([FromRoute] Guid id, [FromServices] ProductDbContext dbContext) =>
-{
-    return await dbContext.Products.FirstOrDefaultAsync(p => p.Id == id);
-})
+app.MapGet("/products/{id}", async ([FromRoute] Guid id, [FromServices] ProductDbContext dbContext, [FromServices] IMapper mapper) =>
+    {
+        var product =  await dbContext.Products.FirstOrDefaultAsync(p => p.Id == id);
+        if (product != null) return mapper.Map<Product, ProductDto>(product);
+
+        return null;
+    })
     .WithName("GetProduct")
     .WithOpenApi();
 
-app.MapGet("/products", async ([FromServices] ProductDbContext dbContext) =>
+app.MapGet("/products", async ([FromServices] ProductDbContext dbContext, [FromServices] IMapper mapper) =>
     {
-        return await dbContext.Products.ToListAsync();
+        var products = await dbContext.Products.ToListAsync();
+        return products.Select(mapper.Map<Product, ProductDto>);
     })
     .WithName("GetProducts")
     .WithOpenApi();
