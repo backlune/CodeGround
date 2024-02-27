@@ -36,11 +36,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservice example", "Mic
 		CourseInfo.md = CourseInfo.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.Web", "BookStore\BookStore.Web\BookStore.Web\BookStore.Web.csproj", "{09396C8F-2BB6-42EF-9E68-4AB528A89372}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore.Web", "BookStore\BookStore.Web\BookStore.Web\BookStore.Web.csproj", "{09396C8F-2BB6-42EF-9E68-4AB528A89372}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.Web.Client", "BookStore\BookStore.Web\BookStore.Web.Client\BookStore.Web.Client.csproj", "{C73B50B0-8B35-4F70-8E95-76E3B575F114}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore.Web.Client", "BookStore\BookStore.Web\BookStore.Web.Client\BookStore.Web.Client.csproj", "{C73B50B0-8B35-4F70-8E95-76E3B575F114}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.ProductAPI", "BookStore\BookStore.ProductAPI\BookStore.ProductAPI.csproj", "{8C196191-4809-45F6-A7DA-F28AA3F6D3AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore.ProductAPI", "BookStore\BookStore.ProductAPI\BookStore.ProductAPI.csproj", "{8C196191-4809-45F6-A7DA-F28AA3F6D3AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

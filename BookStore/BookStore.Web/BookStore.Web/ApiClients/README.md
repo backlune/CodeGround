@@ -69,16 +69,17 @@ namespace Example
     {
         public void main()
         {
-            var apiInstance = new BookStoreProductAPIApi();
+            var apiInstance = new ProductApi();
             var body = new ProductDto(); // ProductDto | 
 
             try
             {
-                apiInstance.AddProduct(body);
+                ProductDto result = apiInstance.AddProduct(body);
+                Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling BookStoreProductAPIApi.AddProduct: " + e.Message );
+                Debug.Print("Exception when calling ProductApi.AddProduct: " + e.Message );
             }
         }
     }
@@ -92,9 +93,10 @@ All URIs are relative to */*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*BookStoreProductAPIApi* | [**AddProduct**](docs/BookStoreProductAPIApi.md#addproduct) | **POST** /products | 
-*BookStoreProductAPIApi* | [**GetProduct**](docs/BookStoreProductAPIApi.md#getproduct) | **GET** /products/{id} | 
-*BookStoreProductAPIApi* | [**GetProducts**](docs/BookStoreProductAPIApi.md#getproducts) | **GET** /products | 
+*ProductApi* | [**AddProduct**](docs/ProductApi.md#addproduct) | **POST** /api/products | 
+*ProductApi* | [**DeleteProduct**](docs/ProductApi.md#deleteproduct) | **DELETE** /api/products/{id} | 
+*ProductApi* | [**GetProduct**](docs/ProductApi.md#getproduct) | **GET** /api/products/{id} | 
+*ProductApi* | [**GetProducts**](docs/ProductApi.md#getproducts) | **GET** /api/products | 
 
 <a name="documentation-for-models"></a>
 ## Documentation for Models

@@ -31,34 +31,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 
-app.MapPost("/products", async ([FromBody] ProductDto productDto, [FromServices] ProductDbContext dbContext, [FromServices] IMapper mapper) =>
-    {
-        var product = mapper.Map<ProductDto, Product>(productDto);
-
-        dbContext.Products.Add(product);
-        await dbContext.SaveChangesAsync();
-    })
-    .WithName("AddProduct")
-    .WithOpenApi();
-
-app.MapGet("/products/{id}", async ([FromRoute] Guid id, [FromServices] ProductDbContext dbContext, [FromServices] IMapper mapper) =>
-    {
-        var product =  await dbContext.Products.FirstOrDefaultAsync(p => p.Id == id);
-        if (product != null) return mapper.Map<Product, ProductDto>(product);
-
-        return null;
-    })
-    .WithName("GetProduct")
-    .WithOpenApi();
-
-app.MapGet("/products", async ([FromServices] ProductDbContext dbContext, [FromServices] IMapper mapper) =>
-    {
-        var products = await dbContext.Products.ToListAsync();
-        return products.Select(mapper.Map<Product, ProductDto>);
-    })
-    .WithName("GetProducts")
-    .WithOpenApi();
+app.MapGroup("api/products").MapProductsApi().WithTags("Product");
 
 app.Run();
-
-

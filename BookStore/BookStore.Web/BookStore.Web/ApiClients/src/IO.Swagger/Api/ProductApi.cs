@@ -20,7 +20,7 @@ namespace IO.Swagger.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-        public interface IBookStoreProductAPIApi : IApiAccessor
+        public interface IProductApi : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
@@ -31,8 +31,8 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <returns></returns>
-        void AddProduct (ProductDto body);
+        /// <returns>ProductDto</returns>
+        ProductDto AddProduct (ProductDto body);
 
         /// <summary>
         /// 
@@ -42,8 +42,29 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
+        /// <returns>ApiResponse of ProductDto</returns>
+        ApiResponse<ProductDto> AddProductWithHttpInfo (ProductDto body);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        void DeleteProduct (Guid? id);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> AddProductWithHttpInfo (ProductDto body);
+        ApiResponse<Object> DeleteProductWithHttpInfo (Guid? id);
         /// <summary>
         /// 
         /// </summary>
@@ -94,8 +115,8 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task AddProductAsync (ProductDto body);
+        /// <returns>Task of ProductDto</returns>
+        System.Threading.Tasks.Task<ProductDto> AddProductAsync (ProductDto body);
 
         /// <summary>
         /// 
@@ -105,8 +126,29 @@ namespace IO.Swagger.Api
         /// </remarks>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
+        /// <returns>Task of ApiResponse (ProductDto)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ProductDto>> AddProductAsyncWithHttpInfo (ProductDto body);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteProductAsync (Guid? id);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> AddProductAsyncWithHttpInfo (ProductDto body);
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteProductAsyncWithHttpInfo (Guid? id);
         /// <summary>
         /// 
         /// </summary>
@@ -153,15 +195,15 @@ namespace IO.Swagger.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-        public partial class BookStoreProductAPIApi : IBookStoreProductAPIApi
+        public partial class ProductApi : IProductApi
     {
         private IO.Swagger.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BookStoreProductAPIApi"/> class.
+        /// Initializes a new instance of the <see cref="ProductApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public BookStoreProductAPIApi(String basePath)
+        public ProductApi(String basePath)
         {
             this.Configuration = new IO.Swagger.Client.Configuration { BasePath = basePath };
 
@@ -169,10 +211,10 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BookStoreProductAPIApi"/> class
+        /// Initializes a new instance of the <see cref="ProductApi"/> class
         /// </summary>
         /// <returns></returns>
-        public BookStoreProductAPIApi()
+        public ProductApi()
         {
             this.Configuration = IO.Swagger.Client.Configuration.Default;
 
@@ -180,12 +222,12 @@ namespace IO.Swagger.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BookStoreProductAPIApi"/> class
+        /// Initializes a new instance of the <see cref="ProductApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public BookStoreProductAPIApi(IO.Swagger.Client.Configuration configuration = null)
+        public ProductApi(IO.Swagger.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
                 this.Configuration = IO.Swagger.Client.Configuration.Default;
@@ -263,10 +305,11 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <returns></returns>
-        public void AddProduct (ProductDto body)
+        /// <returns>ProductDto</returns>
+        public ProductDto AddProduct (ProductDto body)
         {
-             AddProductWithHttpInfo(body);
+             ApiResponse<ProductDto> localVarResponse = AddProductWithHttpInfo(body);
+             return localVarResponse.Data;
         }
 
         /// <summary>
@@ -274,14 +317,14 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> AddProductWithHttpInfo (ProductDto body)
+        /// <returns>ApiResponse of ProductDto</returns>
+        public ApiResponse< ProductDto > AddProductWithHttpInfo (ProductDto body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling BookStoreProductAPIApi->AddProduct");
+                throw new ApiException(400, "Missing required parameter 'body' when calling ProductApi->AddProduct");
 
-            var localVarPath = "/products";
+            var localVarPath = "/api/products";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -297,6 +340,7 @@ namespace IO.Swagger.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
             };
             String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -324,9 +368,9 @@ namespace IO.Swagger.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<ProductDto>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                null);
+                (ProductDto) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProductDto)));
         }
 
         /// <summary>
@@ -334,10 +378,11 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task AddProductAsync (ProductDto body)
+        /// <returns>Task of ProductDto</returns>
+        public async System.Threading.Tasks.Task<ProductDto> AddProductAsync (ProductDto body)
         {
-             await AddProductAsyncWithHttpInfo(body);
+             ApiResponse<ProductDto> localVarResponse = await AddProductAsyncWithHttpInfo(body);
+             return localVarResponse.Data;
 
         }
 
@@ -346,14 +391,14 @@ namespace IO.Swagger.Api
         /// </summary>
         /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> AddProductAsyncWithHttpInfo (ProductDto body)
+        /// <returns>Task of ApiResponse (ProductDto)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ProductDto>> AddProductAsyncWithHttpInfo (ProductDto body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling BookStoreProductAPIApi->AddProduct");
+                throw new ApiException(400, "Missing required parameter 'body' when calling ProductApi->AddProduct");
 
-            var localVarPath = "/products";
+            var localVarPath = "/api/products";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -369,6 +414,7 @@ namespace IO.Swagger.Api
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
             };
             String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
@@ -393,6 +439,133 @@ namespace IO.Swagger.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("AddProduct", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ProductDto>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (ProductDto) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProductDto)));
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public void DeleteProduct (Guid? id)
+        {
+             DeleteProductWithHttpInfo(id);
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteProductWithHttpInfo (Guid? id)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling ProductApi->DeleteProduct");
+
+            var localVarPath = "/api/products/{id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteProduct", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteProductAsync (Guid? id)
+        {
+             await DeleteProductAsyncWithHttpInfo(id);
+
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="IO.Swagger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id"></param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteProductAsyncWithHttpInfo (Guid? id)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling ProductApi->DeleteProduct");
+
+            var localVarPath = "/api/products/{id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", this.Configuration.ApiClient.ParameterToString(id)); // path parameter
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteProduct", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -423,9 +596,9 @@ namespace IO.Swagger.Api
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling BookStoreProductAPIApi->GetProduct");
+                throw new ApiException(400, "Missing required parameter 'id' when calling ProductApi->GetProduct");
 
-            var localVarPath = "/products/{id}";
+            var localVarPath = "/api/products/{id}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -489,9 +662,9 @@ namespace IO.Swagger.Api
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling BookStoreProductAPIApi->GetProduct");
+                throw new ApiException(400, "Missing required parameter 'id' when calling ProductApi->GetProduct");
 
-            var localVarPath = "/products/{id}";
+            var localVarPath = "/api/products/{id}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -551,7 +724,7 @@ namespace IO.Swagger.Api
         public ApiResponse< List<ProductDto> > GetProductsWithHttpInfo ()
         {
 
-            var localVarPath = "/products";
+            var localVarPath = "/api/products";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -611,7 +784,7 @@ namespace IO.Swagger.Api
         public async System.Threading.Tasks.Task<ApiResponse<List<ProductDto>>> GetProductsAsyncWithHttpInfo ()
         {
 
-            var localVarPath = "/products";
+            var localVarPath = "/api/products";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);

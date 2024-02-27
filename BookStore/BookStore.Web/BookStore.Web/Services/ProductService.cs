@@ -1,15 +1,17 @@
 ﻿using IO.Swagger.Api;
+using IO.Swagger.Client;
 using IO.Swagger.Model;
+
 
 namespace BookStore.Web.Services
 {
     public class ProductService
     {
-        private BookStoreProductAPIApi client;
+        private ProductApi client;
 
         public ProductService()
         {
-            client = new BookStoreProductAPIApi(SD.ProductAPIBase);
+            client = new ProductApi(SD.ProductAPIBase);
         }
 
         public async Task<List<ProductDto>> GetAllProductsAsync()
@@ -25,6 +27,11 @@ namespace BookStore.Web.Services
         public async Task CreateProduct<T>(ProductDto product)
         {
             await client.AddProductAsync(product);
+        }
+
+        public async Task DeleteProductAsync(Guid productId)
+        {
+            await client.DeleteProductAsync(productId);
         }
     }
 }

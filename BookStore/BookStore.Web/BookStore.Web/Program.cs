@@ -1,3 +1,4 @@
+using BookStore.Web;
 using BookStore.Web.Client.Pages;
 using BookStore.Web.Components;
 
@@ -7,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+SD.ProductAPIBase = builder.Configuration["ServiceUrls:ProductApi"] ?? throw new InvalidOperationException("ServiceUrls:ProductApi not found");
 
 var app = builder.Build();
 
