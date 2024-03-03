@@ -36,11 +36,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservice example", "Mic
 		CourseInfo.md = CourseInfo.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore.Web", "BookStore\BookStore.Web\BookStore.Web\BookStore.Web.csproj", "{09396C8F-2BB6-42EF-9E68-4AB528A89372}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore.Web.Client", "BookStore\BookStore.Web\BookStore.Web.Client\BookStore.Web.Client.csproj", "{C73B50B0-8B35-4F70-8E95-76E3B575F114}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore.ProductAPI", "BookStore\BookStore.ProductAPI\BookStore.ProductAPI.csproj", "{8C196191-4809-45F6-A7DA-F28AA3F6D3AC}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "bookstore.app.client", "BookStore\bookstore.app.client\bookstore.app.client.esproj", "{A18FC503-A0EE-4CBD-9259-F57652B74865}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore.App.Server", "BookStore\BookStore.App.Server\BookStore.App.Server.csproj", "{57914A90-E3B7-4D7F-AB8D-D628E9785C0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -96,18 +96,20 @@ Global
 		{0754933E-08A0-436C-BFC3-6CC486B2ACFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0754933E-08A0-436C-BFC3-6CC486B2ACFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0754933E-08A0-436C-BFC3-6CC486B2ACFE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{09396C8F-2BB6-42EF-9E68-4AB528A89372}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{09396C8F-2BB6-42EF-9E68-4AB528A89372}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{09396C8F-2BB6-42EF-9E68-4AB528A89372}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{09396C8F-2BB6-42EF-9E68-4AB528A89372}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C73B50B0-8B35-4F70-8E95-76E3B575F114}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C73B50B0-8B35-4F70-8E95-76E3B575F114}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C73B50B0-8B35-4F70-8E95-76E3B575F114}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C73B50B0-8B35-4F70-8E95-76E3B575F114}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8C196191-4809-45F6-A7DA-F28AA3F6D3AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8C196191-4809-45F6-A7DA-F28AA3F6D3AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C196191-4809-45F6-A7DA-F28AA3F6D3AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C196191-4809-45F6-A7DA-F28AA3F6D3AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A18FC503-A0EE-4CBD-9259-F57652B74865}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A18FC503-A0EE-4CBD-9259-F57652B74865}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A18FC503-A0EE-4CBD-9259-F57652B74865}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A18FC503-A0EE-4CBD-9259-F57652B74865}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A18FC503-A0EE-4CBD-9259-F57652B74865}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A18FC503-A0EE-4CBD-9259-F57652B74865}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{57914A90-E3B7-4D7F-AB8D-D628E9785C0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57914A90-E3B7-4D7F-AB8D-D628E9785C0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57914A90-E3B7-4D7F-AB8D-D628E9785C0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57914A90-E3B7-4D7F-AB8D-D628E9785C0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -115,9 +117,9 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{C355380E-BFDF-4221-8A7B-9D33F540F1AC} = {C86CF1AD-C7DA-46EF-9444-1BCC998752BB}
 		{31283600-E576-49D5-8B60-F4E209FFF9EE} = {4547039E-791D-41DE-96B3-1733EBD81861}
-		{09396C8F-2BB6-42EF-9E68-4AB528A89372} = {31283600-E576-49D5-8B60-F4E209FFF9EE}
-		{C73B50B0-8B35-4F70-8E95-76E3B575F114} = {31283600-E576-49D5-8B60-F4E209FFF9EE}
 		{8C196191-4809-45F6-A7DA-F28AA3F6D3AC} = {31283600-E576-49D5-8B60-F4E209FFF9EE}
+		{A18FC503-A0EE-4CBD-9259-F57652B74865} = {31283600-E576-49D5-8B60-F4E209FFF9EE}
+		{57914A90-E3B7-4D7F-AB8D-D628E9785C0B} = {31283600-E576-49D5-8B60-F4E209FFF9EE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {71D701A3-9DD3-472D-995E-2675DF54CE91}
