@@ -1,64 +1,39 @@
-import { useEffect, useState } from 'react';
-import './App.scss';
+import "./App.scss";
+import { useEffect, useState } from "react";
+import ProductView from "./Product";
 
-
-
-interface Product {
-    name: string;
-    price: number;
-    description: string;
-    id: string;
-}
+// useState
 
 function App() {
-    const [products, setProducts] = useState<Product[]>();
+  const [loggedIn, setLogin] = useState<boolean>(false);
 
-    useEffect(() => {
-        populateProduts();
-    }, []);
+  const checkClaimsAndProceed = async () => {
+    // Check logged in?
+    const claimsResponse = await fetch("/bff/user", {
+      headers: new Headers({
+        "X-CSRF": "1",
+      }),
+    });
 
-    const contents = products === undefined
-        ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
-        : <table className="table table-striped" aria-labelledby="tabelLabel">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Description</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                {products.map(product =>
-                    <tr key={product.name}>
-                        <td>{product.price}</td>
-                        <td>{product.description}</td>
-                        <td><button type="button" class="btn btn-outline-danger" onClick={() => deleteProduct(product.id)} >Delete</button></td>
-                    </tr>
-                )}
-            </tbody>
-        </table>
+    if (claimsResponse.ok) {
+      const userClaims = await claimsResponse.json();
 
-    return (
-        <div>
-            <h1 id="tabelLabel">Products</h1>
-            <p>Available products</p>
-            {contents}
-        </div>
-    );
-
-    async function populateProduts() {
-        const response = await fetch('products');
-        const data = await response.json();
-        setProducts(data);
+      console.log("user logged in", userClaims);
+      setLogin(true);
+    } else if (claimsResponse.status === 401) {
+      console.log("user not logged in");
+      setLogin(false);
+      window.location.href = "/bff/login";
     }
+    // if not logged in show login page
+    // else show product page
+  };
 
-    async function deleteProduct(productId: string) {
-        await fetch("products/" + productId, {
-            method: "DELETE"
-        })
-        await populateProduts();
-    }
+  useEffect(() => {
+    checkClaimsAndProceed();
+  }, []);
+
+  return loggedIn ? <ProductView /> : <ProductView />;
 }
 
 export default App;

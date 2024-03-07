@@ -1,6 +1,10 @@
 @BookStore.App.Server_HostAddress = http://localhost:5042
 
-GET {{BookStore.App.Server_HostAddress}}/weatherforecast/
+GET {{BookStore.App.Server_HostAddress}}/products/
 Accept: application/json
 
 ###
+
+
+GET {{BookStore.App.Server_HostAddress}}/bff/user
+X-CSRF: 1

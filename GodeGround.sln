@@ -29,18 +29,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GodeGround.Base", "CodeGrou
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeGround.Modeling", "CodeGround.Modeling\CodeGround.Modeling.csproj", "{0754933E-08A0-436C-BFC3-6CC486B2ACFE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Architecture", "Architecture", "{4547039E-791D-41DE-96B3-1733EBD81861}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservice example", "Microservice example", "{31283600-E576-49D5-8B60-F4E209FFF9EE}"
-	ProjectSection(SolutionItems) = preProject
-		CourseInfo.md = CourseInfo.md
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore.ProductAPI", "BookStore\BookStore.ProductAPI\BookStore.ProductAPI.csproj", "{8C196191-4809-45F6-A7DA-F28AA3F6D3AC}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "bookstore.app.client", "BookStore\bookstore.app.client\bookstore.app.client.esproj", "{A18FC503-A0EE-4CBD-9259-F57652B74865}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore.App.Server", "BookStore\BookStore.App.Server\BookStore.App.Server.csproj", "{57914A90-E3B7-4D7F-AB8D-D628E9785C0B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BookStore", "BookStore", "{F1A9CB74-906E-40DA-932D-80E57F6BF4DA}"
+	ProjectSection(SolutionItems) = preProject
+		CourseInfo.md = CourseInfo.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "BookStore\IdentityServer\IdentityServer.csproj", "{5E255A5C-6619-49AF-8BCA-525499FB9106}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -110,16 +110,20 @@ Global
 		{57914A90-E3B7-4D7F-AB8D-D628E9785C0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57914A90-E3B7-4D7F-AB8D-D628E9785C0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57914A90-E3B7-4D7F-AB8D-D628E9785C0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E255A5C-6619-49AF-8BCA-525499FB9106}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E255A5C-6619-49AF-8BCA-525499FB9106}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E255A5C-6619-49AF-8BCA-525499FB9106}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E255A5C-6619-49AF-8BCA-525499FB9106}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C355380E-BFDF-4221-8A7B-9D33F540F1AC} = {C86CF1AD-C7DA-46EF-9444-1BCC998752BB}
-		{31283600-E576-49D5-8B60-F4E209FFF9EE} = {4547039E-791D-41DE-96B3-1733EBD81861}
-		{8C196191-4809-45F6-A7DA-F28AA3F6D3AC} = {31283600-E576-49D5-8B60-F4E209FFF9EE}
-		{A18FC503-A0EE-4CBD-9259-F57652B74865} = {31283600-E576-49D5-8B60-F4E209FFF9EE}
-		{57914A90-E3B7-4D7F-AB8D-D628E9785C0B} = {31283600-E576-49D5-8B60-F4E209FFF9EE}
+		{8C196191-4809-45F6-A7DA-F28AA3F6D3AC} = {F1A9CB74-906E-40DA-932D-80E57F6BF4DA}
+		{A18FC503-A0EE-4CBD-9259-F57652B74865} = {F1A9CB74-906E-40DA-932D-80E57F6BF4DA}
+		{57914A90-E3B7-4D7F-AB8D-D628E9785C0B} = {F1A9CB74-906E-40DA-932D-80E57F6BF4DA}
+		{5E255A5C-6619-49AF-8BCA-525499FB9106} = {F1A9CB74-906E-40DA-932D-80E57F6BF4DA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {71D701A3-9DD3-472D-995E-2675DF54CE91}

@@ -1,6 +1,10 @@
 using BookStore.App.Server;
 using BookStore.App.Server.Services;
+using Duende.Bff.Yarp;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,12 +13,45 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddAuthorization();
+
+builder.Services
+    .AddBff()
+    .AddRemoteApis();
+
+JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
+
+builder.Services
+    .AddAuthentication(options =>
+    {
+        options.DefaultScheme = "Cookies";
+        options.DefaultChallengeScheme = "oidc";
+        options.DefaultSignOutScheme = "oidc";
+    })
+    .AddCookie("Cookies")
+    .AddOpenIdConnect("oidc", options =>
+    {
+        options.Authority = "https://localhost:5001";
+        options.ClientId = "bff";
+        options.ClientSecret = "secret";
+        options.ResponseType = "code";
+        options.Scope.Add("productApi");
+        options.SaveTokens = true;
+        options.GetClaimsFromUserInfoEndpoint = true;
+    });
+
 var app = builder.Build();
 
 SD.ProductAPIBase = builder.Configuration["ServiceUrls:ProductApi"] ?? throw new InvalidOperationException("ServiceUrls:ProductApi not found");
 
 app.UseDefaultFiles();
 app.UseStaticFiles();
+
+app.UseRouting();
+app.UseAuthentication();
+app.UseBff();
+app.UseAuthorization();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -25,6 +62,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.MapBffManagementEndpoints();
 
 
 app.MapGet("/products", async () =>
@@ -41,6 +79,14 @@ app.MapDelete("/products/{id}", async ([FromRoute] Guid id) =>
         await service.DeleteProductAsync(id);
     })
     .WithName("DeleteProducts")
+    .WithOpenApi();
+
+app.MapGet("/bff/users2",  () =>
+    {
+
+        return Results.Ok();
+    })
+    .WithName("GetUSers")
     .WithOpenApi();
 
 app.MapFallbackToFile("/index.html");
