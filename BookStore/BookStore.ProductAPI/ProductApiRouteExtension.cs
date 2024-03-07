@@ -19,6 +19,7 @@ public static class ProductApiRouteExtension
                 return TypedResults.Ok(mapper.Map<Product, ProductDto>(product));
             })
             .WithName("AddProduct")
+            .RequireAuthorization()
             .WithOpenApi();
 
         group.MapGet("{id}", async ([FromRoute] Guid id, [FromServices] ProductDbContext dbContext, [FromServices] IMapper mapper) =>
@@ -32,6 +33,7 @@ public static class ProductApiRouteExtension
                 return Results.NotFound(); ;
             })
             .WithName("GetProduct")
+            .RequireAuthorization()
             .WithOpenApi()
             .Produces<ProductDto>(StatusCodes.Status200OK)
             .Produces(StatusCodes.Status404NotFound);
@@ -42,6 +44,7 @@ public static class ProductApiRouteExtension
                 return products.Select(mapper.Map<Product, ProductDto>);
             })
             .WithName("GetProducts")
+            .RequireAuthorization()
             .WithOpenApi();
 
         group.MapDelete("{id}",
@@ -59,6 +62,7 @@ public static class ProductApiRouteExtension
 
                 })
             .WithName("DeleteProduct")
+            .RequireAuthorization("Admin")
             .WithOpenApi()
             .Produces(StatusCodes.Status200OK)
             .Produces(StatusCodes.Status404NotFound);

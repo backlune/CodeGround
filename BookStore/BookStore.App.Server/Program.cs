@@ -31,13 +31,15 @@ builder.Services
     .AddCookie("Cookies")
     .AddOpenIdConnect("oidc", options =>
     {
-        options.Authority = "https://localhost:5001";
+        options.Authority =builder.Configuration["ServiceUrls:IdentityApi"];
         options.ClientId = "bff";
         options.ClientSecret = "secret";
         options.ResponseType = "code";
         options.Scope.Add("productApi");
         options.SaveTokens = true;
         options.GetClaimsFromUserInfoEndpoint = true;
+        options.TokenValidationParameters.NameClaimType = "name";
+        options.TokenValidationParameters.NameClaimType = "role";
     });
 
 var app = builder.Build();
