@@ -1,4 +1,4 @@
-using BookStore.ProductAPI;
+using BookStore.CartApi;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -21,25 +21,24 @@ builder.Services.AddSwaggerGen(c =>
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
-        new OpenApiSecurityScheme
-        {
-            Reference = new OpenApiReference
+            new OpenApiSecurityScheme
             {
-            Type = ReferenceType.SecurityScheme,
-            Id = "Bearer"
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
                 },
-            Scheme = "oauth2",
-            Name="Bearer",
-            In = ParameterLocation.Header,
-        },
-        new List<string>()
+                Scheme = "oauth2",
+                Name="Bearer",
+                In = ParameterLocation.Header,
+            },
+            new List<string>()
         }
     });
 });
 
-builder.Services.AddDbContext<ProductDbContext>(options =>
+builder.Services.AddDbContext<CartDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("SqliteConnection")));
-//builder.Services.AddDbContextFactory<ProductDbContext>()
 
 var mapper = MappingConfig.RegisterMaps().CreateMapper();
 builder.Services.AddSingleton(mapper);
@@ -74,7 +73,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-
-app.MapGroup("api/products").MapProductsApi().WithTags("Product");
+app.MapGroup("api/cart").MapCartApi().WithTags("Cart");
 
 app.Run();

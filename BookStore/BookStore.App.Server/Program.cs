@@ -31,7 +31,7 @@ builder.Services
     .AddCookie("Cookies")
     .AddOpenIdConnect("oidc", options =>
     {
-        options.Authority =builder.Configuration["ServiceUrls:IdentityApi"];
+        options.Authority = builder.Configuration["ServiceUrls:IdentityApi"];
         options.ClientId = "bff";
         options.ClientSecret = "secret";
         options.ResponseType = "code";
@@ -44,7 +44,10 @@ builder.Services
 
 var app = builder.Build();
 
-SD.ProductAPIBase = builder.Configuration["ServiceUrls:ProductApi"] ?? throw new InvalidOperationException("ServiceUrls:ProductApi not found");
+SD.ProductAPIBase = builder.Configuration["ServiceUrls:ProductApi"] ??
+                    throw new InvalidOperationException("ServiceUrls:ProductApi not found");
+SD.IdentityApi = builder.Configuration["ServiceUrls:IdentityApi"] ??
+                 throw new InvalidOperationException("ServiceUrls:IdentityApi not found");
 
 app.UseDefaultFiles();
 app.UseStaticFiles();
@@ -67,32 +70,28 @@ app.UseHttpsRedirection();
 app.MapBffManagementEndpoints();
 
 
-app.MapGet("/products", async () =>
+app.MapGet("/products", async (HttpContext context) =>
 {
-    var service = new ProductService();
+    var accessToken = await context.GetTokenAsync("access_token") ?? throw new UnauthorizedAccessException("No token");
+    var service = new ProductService(accessToken);
     return await service.GetAllProductsAsync();
 })
 .WithName("GetProducts")
 .WithOpenApi();
 
-app.MapDelete("/products/{id}", async ([FromRoute] Guid id) =>
+app.MapDelete("/products/{id}", async (HttpContext context, [FromRoute] Guid id) =>
     {
-        var service = new ProductService();
+        var accessToken = await context.GetTokenAsync("access_token") ?? throw new UnauthorizedAccessException("No token");
+        var service = new ProductService(accessToken);
         await service.DeleteProductAsync(id);
     })
     .WithName("DeleteProducts")
     .WithOpenApi();
 
-app.MapGet("/bff/users2",  () =>
-    {
-
-        return Results.Ok();
-    })
+app.MapGet("/bff/users2", () => Results.Ok())
     .WithName("GetUSers")
     .WithOpenApi();
 
 app.MapFallbackToFile("/index.html");
 
 app.Run();
-
-

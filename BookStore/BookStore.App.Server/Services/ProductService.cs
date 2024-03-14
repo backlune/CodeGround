@@ -7,6 +7,11 @@ namespace BookStore.App.Server.Services
     {
         private ProductApi client = new(SD.ProductAPIBase);
 
+        public ProductService(string apiKey)
+        {
+            client.Configuration.ApiKey = new Dictionary<string, string> { { "Authorization", "Bearer " + apiKey} };
+        }
+
         public async Task<List<ProductDto>> GetAllProductsAsync()
         {
             return await client.GetProductsAsync();

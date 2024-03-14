@@ -42,6 +42,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BookStore", "BookStore", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "BookStore\IdentityServer\IdentityServer.csproj", "{5E255A5C-6619-49AF-8BCA-525499FB9106}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore.CartApi", "BookStore\BookStore.CartApi\BookStore.CartApi.csproj", "{864749FB-9AE9-478D-A0D4-0EF74B5A030E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.Common", "BookStore\BookStore.Common\BookStore.Common.csproj", "{B13133FE-EF8A-4402-8670-E2B751723A93}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -114,6 +118,14 @@ Global
 		{5E255A5C-6619-49AF-8BCA-525499FB9106}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E255A5C-6619-49AF-8BCA-525499FB9106}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E255A5C-6619-49AF-8BCA-525499FB9106}.Release|Any CPU.Build.0 = Release|Any CPU
+		{864749FB-9AE9-478D-A0D4-0EF74B5A030E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{864749FB-9AE9-478D-A0D4-0EF74B5A030E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{864749FB-9AE9-478D-A0D4-0EF74B5A030E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{864749FB-9AE9-478D-A0D4-0EF74B5A030E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B13133FE-EF8A-4402-8670-E2B751723A93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B13133FE-EF8A-4402-8670-E2B751723A93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B13133FE-EF8A-4402-8670-E2B751723A93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B13133FE-EF8A-4402-8670-E2B751723A93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -124,6 +136,8 @@ Global
 		{A18FC503-A0EE-4CBD-9259-F57652B74865} = {F1A9CB74-906E-40DA-932D-80E57F6BF4DA}
 		{57914A90-E3B7-4D7F-AB8D-D628E9785C0B} = {F1A9CB74-906E-40DA-932D-80E57F6BF4DA}
 		{5E255A5C-6619-49AF-8BCA-525499FB9106} = {F1A9CB74-906E-40DA-932D-80E57F6BF4DA}
+		{864749FB-9AE9-478D-A0D4-0EF74B5A030E} = {F1A9CB74-906E-40DA-932D-80E57F6BF4DA}
+		{B13133FE-EF8A-4402-8670-E2B751723A93} = {F1A9CB74-906E-40DA-932D-80E57F6BF4DA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {71D701A3-9DD3-472D-995E-2675DF54CE91}

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
@@ -30,6 +30,7 @@
 		<ProjectReference Include="..\bookstore.app.client\bookstore.app.client.esproj">
 			<ReferenceOutputAssembly>false</ReferenceOutputAssembly>
 		</ProjectReference>
+		<ProjectReference Include="..\BookStore.Common\BookStore.Common.csproj" />
 	</ItemGroup>
 
 </Project>

@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BookStore.ProductAPI.Data;
+using Microsoft.EntityFrameworkCore;
 
-namespace BookStore.ProductAPI.Data
+namespace BookStore.ProductAPI
 {
     public class ProductDbContext : DbContext
     {
@@ -12,7 +13,7 @@ namespace BookStore.ProductAPI.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-           
+
         }
     }
 }

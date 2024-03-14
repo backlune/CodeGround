@@ -1,11 +1,12 @@
 using AutoMapper;
+using BookStore.Common;
 using BookStore.ProductAPI.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookStore.ProductAPI;
 
-public static class ProductApiRouteExtension
+public static class ProductApi
 {
     public static RouteGroupBuilder MapProductsApi(this RouteGroupBuilder group)
     {
