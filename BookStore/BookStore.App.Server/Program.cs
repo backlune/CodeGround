@@ -44,9 +44,9 @@ builder.Services
 
 var app = builder.Build();
 
-SD.ProductAPIBase = builder.Configuration["ServiceUrls:ProductApi"] ??
+Configs.ProductAPIBase = builder.Configuration["ServiceUrls:ProductApi"] ??
                     throw new InvalidOperationException("ServiceUrls:ProductApi not found");
-SD.IdentityApi = builder.Configuration["ServiceUrls:IdentityApi"] ??
+Configs.IdentityApi = builder.Configuration["ServiceUrls:IdentityApi"] ??
                  throw new InvalidOperationException("ServiceUrls:IdentityApi not found");
 
 app.UseDefaultFiles();

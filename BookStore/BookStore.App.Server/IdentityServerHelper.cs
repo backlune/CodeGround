@@ -6,7 +6,7 @@ public static class IdentityServerHelper
     public static async Task<TokenResponse> GetAccessToken()
     {
         var client = new HttpClient();
-        var disco = await client.GetDiscoveryDocumentAsync(SD.IdentityApi);
+        var disco = await client.GetDiscoveryDocumentAsync(Configs.IdentityApi);
         var tokenResponse1 = await client.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
         {
             Address = disco.TokenEndpoint,

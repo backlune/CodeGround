@@ -1,13 +1,10 @@
-# IO.Swagger.Model.Product
+# IO.Swagger.Model.CartDto
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProductId** | **Guid?** |  | [optional] 
-**Name** | **string** |  | 
-**Price** | **double?** |  | [optional] 
-**Description** | **string** |  | [optional] 
-**ImageUrl** | **string** |  | [optional] 
+**CartHeader** | [**CartHeader**](CartHeader.md) |  | [optional] 
+**CartDetails** | [**List&lt;CartDetails&gt;**](CartDetails.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

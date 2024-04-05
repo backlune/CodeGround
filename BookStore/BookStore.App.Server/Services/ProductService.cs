@@ -5,7 +5,7 @@ namespace BookStore.App.Server.Services
 {
     public class ProductService
     {
-        private ProductApi client = new(SD.ProductAPIBase);
+        private readonly ProductApi client = new(Configs.ProductAPIBase);
 
         public ProductService(string apiKey)
         {

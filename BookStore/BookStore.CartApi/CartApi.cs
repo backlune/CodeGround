@@ -17,7 +17,8 @@ namespace BookStore.CartApi
                 })
                 .WithName("GetCart")
                 .RequireAuthorization()
-                .WithOpenApi();
+                .WithOpenApi()
+                .Produces<CartHeaderDto>(StatusCodes.Status200OK);
 
 
             group.MapPost("/",
@@ -29,11 +30,12 @@ namespace BookStore.CartApi
                         await dbContext.CartDetails.AddRangeAsync(cart.CartDetails);
                         await dbContext.SaveChangesAsync();
 
-                        return Results.Ok(cartDto); // Cheating!
+                        return Results.Ok(cartDto);
                     })  
                 .WithName("AddCart")
                 .RequireAuthorization()
-                .WithOpenApi();
+                .WithOpenApi()
+                .Produces<CartDto>(StatusCodes.Status200OK);
 
             group.MapPut("/{cartHeaderId}",
                     async ([FromServices] CartDbContext dbContext, [FromServices] IMapper mapper, Guid cartHeaderId, [FromBody] CartDto cartDto) =>
@@ -44,11 +46,12 @@ namespace BookStore.CartApi
                         await dbContext.CartDetails.AddRangeAsync(cart.CartDetails);
                         await dbContext.SaveChangesAsync();
 
-                        return Results.Ok(cartDto); // Cheating!
+                        return Results.Ok(cartDto);
                     })
                 .WithName("UpdateCart")
                 .RequireAuthorization()
-                .WithOpenApi();
+                .WithOpenApi()
+                .Produces<CartDto>(StatusCodes.Status200OK);
 
             group.MapDelete("/{cartHeaderId}",
                     async ([FromServices] CartDbContext dbContext, [FromServices] IMapper mapper, Guid cartHeaderId) =>
