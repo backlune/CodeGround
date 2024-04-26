@@ -2,6 +2,8 @@ using AutoMapper;
 using BookStore.CartApi.Models;
 using BookStore.CartApi.Models.Dto;
 
+namespace BookStore.CartApi;
+
 public static class MappingConfig
 {
     public static MapperConfiguration RegisterMaps()

@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
-using BookStore.CartApi.Models;
 using BookStore.CartApi.Models.Dto;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace BookStore.CartApi
 {
@@ -10,10 +8,13 @@ namespace BookStore.CartApi
     {
         public static RouteGroupBuilder MapCartApi(this RouteGroupBuilder group)
         {
+            
+
             group.MapGet("/{userId}", async ([FromServices] CartDbContext dbContext, [FromServices] IMapper mapper, Guid userId) =>
                 {
-                    var cart = await dbContext.CartHeaders.SingleAsync(c => c.UserId == userId); // Can be more than one but shouldn't
-                    return Results.Ok(mapper.Map<CartHeader, CartHeaderDto>(cart));
+                    // Move below to a method in CartService
+                    var cart = await CartService.GetCart(userId, dbContext, mapper);
+                    return Results.Ok(cart);
                 })
                 .WithName("GetCart")
                 .RequireAuthorization()
@@ -24,11 +25,8 @@ namespace BookStore.CartApi
             group.MapPost("/",
                     async ([FromServices] CartDbContext dbContext, [FromServices] IMapper mapper, [FromBody] CartDto cartDto) =>
                     {
-                        var cart = mapper.Map<Cart>(cartDto);
-                        
-                        await dbContext.CartHeaders.AddAsync(cart.CartHeader);
-                        await dbContext.CartDetails.AddRangeAsync(cart.CartDetails);
-                        await dbContext.SaveChangesAsync();
+                        // Move to CartService
+                        var cart = CartService.AddCart(cartDto, dbContext, mapper);
 
                         return Results.Ok(cartDto);
                     })  
@@ -40,11 +38,8 @@ namespace BookStore.CartApi
             group.MapPut("/{cartHeaderId}",
                     async ([FromServices] CartDbContext dbContext, [FromServices] IMapper mapper, Guid cartHeaderId, [FromBody] CartDto cartDto) =>
                     {
-                        var cart = mapper.Map<Cart>(cartDto);
-
-                        await dbContext.CartHeaders.AddAsync(cart.CartHeader);
-                        await dbContext.CartDetails.AddRangeAsync(cart.CartDetails);
-                        await dbContext.SaveChangesAsync();
+                        await CartService.UpdateCart(cartHeaderId, cartDto, dbContext, mapper);
+                        
 
                         return Results.Ok(cartDto);
                     })
@@ -56,9 +51,7 @@ namespace BookStore.CartApi
             group.MapDelete("/{cartHeaderId}",
                     async ([FromServices] CartDbContext dbContext, [FromServices] IMapper mapper, Guid cartHeaderId) =>
                     {
-                        var cartHeader = await dbContext.CartHeaders.SingleAsync(c => c.Id == cartHeaderId);
-                        dbContext.CartHeaders.Remove(cartHeader);
-                        await dbContext.SaveChangesAsync();
+                        await CartService.DeleteCart(cartHeaderId, dbContext);
 
                         return Results.Ok(); 
                     })

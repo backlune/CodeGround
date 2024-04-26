@@ -36,6 +36,7 @@ builder.Services
         options.ClientSecret = "secret";
         options.ResponseType = "code";
         options.Scope.Add("productApi");
+        options.Scope.Add("cartApi");
         options.SaveTokens = true;
         options.GetClaimsFromUserInfoEndpoint = true;
         options.TokenValidationParameters.NameClaimType = "name";

@@ -1,6 +1,6 @@
 namespace BookStore.CartApi.Models.Dto;
 
-class CartDto
+public class CartDto
 {
     public CartHeaderDto CartHeader { get; set; }
 

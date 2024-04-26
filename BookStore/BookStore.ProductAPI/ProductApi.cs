@@ -1,5 +1,4 @@
 using AutoMapper;
-using BookStore.Common;
 using BookStore.ProductAPI.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,10 +11,7 @@ public static class ProductApi
     {
         group.MapPost("", async ([FromBody] ProductDto productDto, [FromServices] ProductDbContext dbContext, [FromServices] IMapper mapper) =>
             {
-                var product = mapper.Map<ProductDto, Product>(productDto);
-
-                dbContext.Products.Add(product);
-                await dbContext.SaveChangesAsync();
+                var product = await ProductService.AddProduct(mapper, productDto, dbContext);
 
                 return TypedResults.Ok(mapper.Map<Product, ProductDto>(product));
             })
@@ -25,13 +21,18 @@ public static class ProductApi
 
         group.MapGet("{id}", async ([FromRoute] Guid id, [FromServices] ProductDbContext dbContext, [FromServices] IMapper mapper) =>
             {
-                var product = await dbContext.Products.FirstOrDefaultAsync(p => p.Id == id);
-                if (product != null)
+                // return BadResult if ProductNotFoundException is thrown
+                try
                 {
+                    var product = await ProductService.GetProduct(id, dbContext, mapper);
+
                     return TypedResults.Ok(mapper.Map<Product, ProductDto>(product));
                 }
+                catch (ProductNotFoundException)
+                {
+                    return Results.NotFound();
+                }
 
-                return Results.NotFound(); ;
             })
             .WithName("GetProduct")
             .RequireAuthorization()
@@ -51,16 +52,16 @@ public static class ProductApi
         group.MapDelete("{id}",
                 async ([FromRoute] Guid id, [FromServices] ProductDbContext dbContext, [FromServices] IMapper mapper) =>
                 {
-                    var product = await dbContext.Products.FirstOrDefaultAsync(p => p.Id == id);
-                    if (product == null)
+                    // Use ProductService.DeleteProduct to delete the product and return NotFound if ProductNotFoundException is thrown
+                    try
+                    {
+                        await ProductService.DeleteProduct(id, dbContext);
+                        return Results.Ok();
+                    }
+                    catch (ProductNotFoundException)
                     {
                         return Results.NotFound();
                     }
-
-                    dbContext.Products.Remove(product);
-                    await dbContext.SaveChangesAsync();
-                    return Results.Ok();
-
                 })
             .WithName("DeleteProduct")
             .RequireAuthorization("Admin")
@@ -70,4 +71,6 @@ public static class ProductApi
 
         return group;
     }
+
+    
 }
