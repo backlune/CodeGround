@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Serilog;
 
 namespace IdentityServer;
@@ -19,6 +20,17 @@ internal static class HostingExtensions
             .AddInMemoryApiScopes(Config.ApiScopes)
             .AddInMemoryClients(Config.Clients)
             .AddTestUsers(TestUsers.Users);
+
+        builder.Services.AddAuthentication()
+            .AddOpenIdConnect("oidc", "External", options =>
+            {
+                options.Authority = "https://external";
+                options.ClientId = "client";
+                options.ClientSecret = "secret";
+                
+            });
+            
+
 
         return builder.Build();
     }

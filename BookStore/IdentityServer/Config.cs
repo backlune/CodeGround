@@ -68,6 +68,11 @@ public static class Config
                     IdentityServerConstants.StandardScopes.OpenId,
                     IdentityServerConstants.StandardScopes.Profile,
                     "productApi"
+                },
+                Claims = new List<ClientClaim>()
+                {
+                    new ClientClaim("role", "admin")
+                    
                 }
             }
 
